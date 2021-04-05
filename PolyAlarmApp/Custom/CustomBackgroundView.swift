@@ -1,5 +1,5 @@
 //
-//  LoginBackgroundView.swift
+//  CustomBackgroundView.swift
 //  alarm
 //
 //  Created by Alina Potapova on 31.03.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginBackgroundView: View {
+struct CustomBackgroundView: View {
     
     private enum Strings {
         static let polyAlarm = "POLYALARM"
@@ -18,7 +18,7 @@ struct LoginBackgroundView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.gradientTop, .gradientBottom]), startPoint: .top, endPoint: .bottom)
-              .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
                 HStack {
@@ -52,8 +52,8 @@ struct LoginBackgroundView: View {
     }
 }
 
-struct LoginBackgroundView_Previews: PreviewProvider {
+struct CustomBackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginBackgroundView()
+        CustomBackgroundView()
     }
 }
