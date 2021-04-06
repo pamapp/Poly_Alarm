@@ -38,9 +38,9 @@
 		91AC9638261B9A75000329DC /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9637261B9A74000329DC /* SoundsView.swift */; };
 		91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963B261B9A8F000329DC /* TitleLabelView.swift */; };
 		91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963E261B9AD3000329DC /* PolyAlamApp.swift */; };
-		91AC9659261BACA4000329DC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9658261BACA4000329DC /* MainPageView.swift */; };
-		91AC965C261BB0F4000329DC /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC965B261BB0F4000329DC /* LogInView.swift */; };
 		91AC9660261BB150000329DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC965F261BB150000329DC /* CustomTextField.swift */; };
+		91AC9664261C35B7000329DC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9663261C35B7000329DC /* MainPageView.swift */; };
+		91AC9667261C35D9000329DC /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9666261C35D9000329DC /* LogInView.swift */; };
 		E5CD0B6F261B9D2900A9EE92 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */; };
 		E5CD0B70261B9D2900A9EE92 /* AlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */; };
 		E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */; };
@@ -83,9 +83,9 @@
 		91AC9637261B9A74000329DC /* SoundsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
 		91AC963B261B9A8F000329DC /* TitleLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		91AC963E261B9AD3000329DC /* PolyAlamApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyAlamApp.swift; sourceTree = "<group>"; };
-		91AC9658261BACA4000329DC /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageView.swift; path = ../../../../MainPageView.swift; sourceTree = "<group>"; };
-		91AC965B261BB0F4000329DC /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInView.swift; path = ../../../../LogInView.swift; sourceTree = "<group>"; };
 		91AC965F261BB150000329DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		91AC9663261C35B7000329DC /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		91AC9666261C35D9000329DC /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmData.swift; sourceTree = "<group>"; };
 		E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -226,9 +226,9 @@
 		91AC960A261B987A000329DC /* MainPageView */ = {
 			isa = PBXGroup;
 			children = (
-				91AC9658261BACA4000329DC /* MainPageView.swift */,
+				91AC9666261C35D9000329DC /* LogInView.swift */,
+				91AC9663261C35B7000329DC /* MainPageView.swift */,
 				91AC9614261B9908000329DC /* SignUpView.swift */,
-				91AC965B261BB0F4000329DC /* LogInView.swift */,
 			);
 			path = MainPageView;
 			sourceTree = "<group>";
@@ -374,16 +374,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91AC965C261BB0F4000329DC /* LogInView.swift in Sources */,
 				91AC9631261B9A4C000329DC /* AlarmRepeatView.swift in Sources */,
 				E5CD0B74261B9D2900A9EE92 /* UserDefaultAlarm.swift in Sources */,
 				91AC95EC261B9719000329DC /* View+Extensions.swift in Sources */,
 				91AC960F261B98C9000329DC /* ContentView.swift in Sources */,
 				91AC961A261B9920000329DC /* SettingsView.swift in Sources */,
 				91AC9627261B99EF000329DC /* AlarmAddView.swift in Sources */,
+				91AC9664261C35B7000329DC /* MainPageView.swift in Sources */,
 				91AC9617261B9908000329DC /* CustomBackgroundView.swift in Sources */,
 				91AC95ED261B9719000329DC /* Font+Extensions.swift in Sources */,
 				91AC9621261B99C5000329DC /* AlarmListView.swift in Sources */,
+				91AC9667261C35D9000329DC /* LogInView.swift in Sources */,
 				91AC95F7261B9791000329DC /* Ringtone.swift in Sources */,
 				91AC9632261B9A4C000329DC /* AlarmRepeatCellView.swift in Sources */,
 				91AC95F8261B9791000329DC /* RepeatDay.swift in Sources */,
@@ -399,7 +400,6 @@
 				E5CD0B72261B9D2900A9EE92 /* Notification.swift in Sources */,
 				91AC961E261B9999000329DC /* NotifyLabelView.swift in Sources */,
 				91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */,
-				91AC9659261BACA4000329DC /* MainPageView.swift in Sources */,
 				91AC9628261B99EF000329DC /* AlarmEditView.swift in Sources */,
 				91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */,
 				E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */,
