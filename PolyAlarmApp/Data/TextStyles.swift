@@ -37,7 +37,7 @@ struct LoginBackgroundText: ViewModifier {
 struct LoginDataText: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.resistMedium(16))
+            .font(.resistMedium(20))
             .foregroundColor(.darkBlue)
             .accentColor(.darkBlue)
             .multilineTextAlignment(.center)

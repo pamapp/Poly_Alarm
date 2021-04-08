@@ -6,23 +6,23 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct alarmApp: App {
-//    let alarm = Alarm.Observable.self
-//    @StateObject var alarms: [Alarm.Observable] = Array<Int>(0..<10).map { _ in Alarm.random().asObservable } { didSet { didSetAlarms() }}
-    
-//    var alarms: [Alarm.Observable] = Array<Int>(0..<10).map { _ in Alarm.random().asObservable } { didSet { didSetAlarms() }}
-    
-//    @StateObject var alarm = Alarm.Observable(Alarm.random())
-    
+    @UIApplicationDelegateAdaptor(Delegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
-    
-    private func didSetAlarms() {
-        
+}
+
+class Delegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     }
 }

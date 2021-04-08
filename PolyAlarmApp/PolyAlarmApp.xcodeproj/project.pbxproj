@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,8 +39,12 @@
 		91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963B261B9A8F000329DC /* TitleLabelView.swift */; };
 		91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963E261B9AD3000329DC /* PolyAlamApp.swift */; };
 		91AC9660261BB150000329DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC965F261BB150000329DC /* CustomTextField.swift */; };
-		91AC9664261C35B7000329DC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9663261C35B7000329DC /* MainPageView.swift */; };
-		91AC9667261C35D9000329DC /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9666261C35D9000329DC /* LogInView.swift */; };
+		E583FA62261F09DC00994C83 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FA61261F09DC00994C83 /* OTPView.swift */; };
+		E5BC87BE261E200F000C91F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */; };
+		E5BC87C2261E205E000C91F4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C1261E205E000C91F4 /* FirebaseStorage */; };
+		E5BC87C4261E205E000C91F4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C3261E205E000C91F4 /* FirebaseAuth */; };
+		E5BC87C6261E205E000C91F4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C5261E205E000C91F4 /* FirebaseFirestore */; };
+		E5BC87C8261E205E000C91F4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C7261E205E000C91F4 /* FirebaseDatabase */; };
 		E5CD0B6F261B9D2900A9EE92 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */; };
 		E5CD0B70261B9D2900A9EE92 /* AlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */; };
 		E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */; };
@@ -84,8 +88,8 @@
 		91AC963B261B9A8F000329DC /* TitleLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		91AC963E261B9AD3000329DC /* PolyAlamApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyAlamApp.swift; sourceTree = "<group>"; };
 		91AC965F261BB150000329DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		91AC9663261C35B7000329DC /* MainPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
-		91AC9666261C35D9000329DC /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		E583FA61261F09DC00994C83 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmData.swift; sourceTree = "<group>"; };
 		E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -99,6 +103,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BC87C2261E205E000C91F4 /* FirebaseStorage in Frameworks */,
+				E5BC87C4261E205E000C91F4 /* FirebaseAuth in Frameworks */,
+				E5BC87C8261E205E000C91F4 /* FirebaseDatabase in Frameworks */,
+				E5BC87C6261E205E000C91F4 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +142,7 @@
 			children = (
 				91AC95C2261B9545000329DC /* Assets.xcassets */,
 				91AC95C7261B9545000329DC /* Info.plist */,
+				E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */,
 				91AC95C4261B9545000329DC /* Preview Content */,
 			);
 			path = PolyAlarmApp;
@@ -226,9 +235,8 @@
 		91AC960A261B987A000329DC /* MainPageView */ = {
 			isa = PBXGroup;
 			children = (
-				91AC9666261C35D9000329DC /* LogInView.swift */,
-				91AC9663261C35B7000329DC /* MainPageView.swift */,
 				91AC9614261B9908000329DC /* SignUpView.swift */,
+				E583FA61261F09DC00994C83 /* OTPView.swift */,
 			);
 			path = MainPageView;
 			sourceTree = "<group>";
@@ -313,6 +321,12 @@
 			dependencies = (
 			);
 			name = PolyAlarmApp;
+			packageProductDependencies = (
+				E5BC87C1261E205E000C91F4 /* FirebaseStorage */,
+				E5BC87C3261E205E000C91F4 /* FirebaseAuth */,
+				E5BC87C5261E205E000C91F4 /* FirebaseFirestore */,
+				E5BC87C7261E205E000C91F4 /* FirebaseDatabase */,
+			);
 			productName = PolyAlarmApp;
 			productReference = 91AC95BB261B953E000329DC /* PolyAlarmApp.app */;
 			productType = "com.apple.product-type.application";
@@ -341,6 +355,9 @@
 				Base,
 			);
 			mainGroup = 91AC95B2261B953E000329DC;
+			packageReferences = (
+				E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 91AC95BC261B953E000329DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,6 +379,7 @@
 				91AC9605261B97E5000329DC /* beacon.mp3 in Resources */,
 				91AC95C6261B9545000329DC /* Preview Assets.xcassets in Resources */,
 				91AC95C3261B9545000329DC /* Assets.xcassets in Resources */,
+				E5BC87BE261E200F000C91F4 /* GoogleService-Info.plist in Resources */,
 				91AC9603261B97E5000329DC /* chimes.mp3 in Resources */,
 				91AC9606261B97E5000329DC /* electro.mp3 in Resources */,
 			);
@@ -380,11 +398,9 @@
 				91AC960F261B98C9000329DC /* ContentView.swift in Sources */,
 				91AC961A261B9920000329DC /* SettingsView.swift in Sources */,
 				91AC9627261B99EF000329DC /* AlarmAddView.swift in Sources */,
-				91AC9664261C35B7000329DC /* MainPageView.swift in Sources */,
 				91AC9617261B9908000329DC /* CustomBackgroundView.swift in Sources */,
 				91AC95ED261B9719000329DC /* Font+Extensions.swift in Sources */,
 				91AC9621261B99C5000329DC /* AlarmListView.swift in Sources */,
-				91AC9667261C35D9000329DC /* LogInView.swift in Sources */,
 				91AC95F7261B9791000329DC /* Ringtone.swift in Sources */,
 				91AC9632261B9A4C000329DC /* AlarmRepeatCellView.swift in Sources */,
 				91AC95F8261B9791000329DC /* RepeatDay.swift in Sources */,
@@ -402,6 +418,7 @@
 				91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */,
 				91AC9628261B99EF000329DC /* AlarmEditView.swift in Sources */,
 				91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */,
+				E583FA62261F09DC00994C83 /* OTPView.swift in Sources */,
 				E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */,
 				91AC9616261B9908000329DC /* SignUpView.swift in Sources */,
 				91AC9626261B99EF000329DC /* AlarmView.swift in Sources */,
@@ -596,6 +613,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5BC87C1261E205E000C91F4 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		E5BC87C3261E205E000C91F4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E5BC87C5261E205E000C91F4 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E5BC87C7261E205E000C91F4 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BC87C0261E205E000C91F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91AC95B3261B953E000329DC /* Project object */;
 }

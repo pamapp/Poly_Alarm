@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CustomTextField: View {
+    var curWidth: CGFloat
+    var curHeight: CGFloat
     var fieldType: Bool
     var placeholder: Text
     var editingChanged: (Bool)->() = { _ in }
@@ -56,7 +58,7 @@ struct CustomTextField: View {
 //            }
             
         }
-            .frame(width: 260, height: 50, alignment: .center)
+            .frame(width: curWidth, height: curHeight, alignment: .center)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(Color.darkBlue, lineWidth: 1)
