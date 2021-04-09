@@ -30,4 +30,15 @@ struct RepeatDay: OptionSet, Codable {
         if contains(.sun) {  return "SUN" }
         return ""
     }
+    
+    var getWeekDayIndex: Int {
+        if contains(.sun) {  return 1 }
+        if contains(.mon) {  return 2 }
+        if contains(.tue) {  return 3 }
+        if contains(.wed) {  return 4 }
+        if contains(.thu) {  return 5 }
+        if contains(.fri) {  return 6 }
+        if contains(.sat) {  return 7 }
+        return 0
+    }
 }

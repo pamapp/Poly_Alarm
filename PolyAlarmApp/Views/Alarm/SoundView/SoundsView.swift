@@ -8,33 +8,6 @@
 import SwiftUI
 import AVFoundation
 
-struct SoundsLabelView: View {
-    @Binding var ringtone: Ringtone
-    @Binding var showingEditSoundView: Bool
-    var body: some View {
-        ZStack(alignment: .center) {
-            HStack {
-                Text("SOUND")
-                    .simpleStyle()
-                Spacer()
-                
-                Button (action: {
-                    withAnimation {
-                        self.showingEditSoundView.toggle()
-                    }
-                }, label: {
-                    Text(ringtone.fullName.uppercased())
-                        .underline()
-                        .simpleStyle()
-                })
-            }
-            .padding(.all, 5)
-            .padding(.leading, 30)
-            .padding(.trailing, 20)
-        }
-    }
-}
-
 struct SoundsView: View {
     @Binding var ringtone: Ringtone
     @Binding var showingEditSoundView: Bool
@@ -55,14 +28,14 @@ struct SoundsView: View {
                             .foregroundColor(.darkGray)
                             .font(.resistMedium())
                         Spacer()
-                    }.padding(.leading).padding(.top)
+                    }.padding(.leading, 40)
                     
                     ForEach(0..<6) { index in
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 280, height: 40, alignment: .center)
                             .foregroundColor(self.edittingRingtone.contains(Ringtone(rawValue: getIndex(index: index))) ? .lightGray : .darkGray)
                             .overlay(
-                                Text("\(Ringtone(rawValue: getIndex(index: index)).fullName)".uppercased())
+                                Text("\(Ringtone(rawValue: getIndex(index: index)).fullName) \(getIndex(index: index) == 1 ? " (DEFAULT)" : "")".uppercased())
                                     .font(.resistMedium(14))
                                     .foregroundColor(.darkBlue)
                             )

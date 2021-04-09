@@ -14,7 +14,7 @@ struct AlarmListView : View {
     @State private var showingAddView = false
     
     @EnvironmentObject var alarmData: AlarmData
-    
+
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "ResistSansDisplay-MediumOblique", size: 40)!]
     }
@@ -63,8 +63,7 @@ struct AlarmListView : View {
                                     .simpleStyle()
                             }
                     )
-                })
-                    .padding(.bottom, -12)
+                }).padding(.bottom, 35)
                     .sheet(isPresented: self.$showingAddView, content: {
                         AlarmAddView()
                             .environmentObject(self.alarmData)
@@ -76,7 +75,6 @@ struct AlarmListView : View {
             }
         }
     }
-    
 
     var timeFormat: DateFormatter {
         let formatter = DateFormatter()

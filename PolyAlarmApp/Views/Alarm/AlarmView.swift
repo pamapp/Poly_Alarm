@@ -12,8 +12,6 @@ struct AlarmView: View {
 
     @StateObject var delegate = NotificationDelegate()
     
-//    @State var notificationsOn = false
-    
     @EnvironmentObject var alarmData: AlarmData
     
     @State private var showingEditView = false
@@ -28,11 +26,9 @@ struct AlarmView: View {
         return formatter
     }()
     
-    
     var alarmIndex: Int {
         alarmData.alarms.firstIndex(where: { $0.id == alarm.id})!
     }
-    
     
     var body: some View {
         ZStack {
@@ -40,29 +36,35 @@ struct AlarmView: View {
                 get: { self.alarmData.alarms[alarmIndex].isEnabled },
                 set: { newValue in
                     self.alarmData.alarms[alarmIndex].isEnabled = newValue
-                    createNotification(alarm: alarmData.alarms[alarmIndex])
+                    createNotification(
+                        alarm: alarmData.alarms[alarmIndex],
+                        weekDay: alarmData.alarms[alarmIndex].repeatDay.getWeekDayIndex
+                    )
                     UNUserNotificationCenter.current().delegate = delegate
                 }
             )
             
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 110, alignment: .center)
-                .foregroundColor(Color.init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)).opacity(0.8))
+                .foregroundColor(alarmData.alarms[alarmIndex].isEnabled ? .lightGray : .darkGray)
                 .overlay (
                     HStack(alignment: .center, spacing: 45) {
                         Text("\(self.alarm.date, formatter: self.timeFormat)")
                             .font(.resistMedium(25))
                             .foregroundColor(.darkBlue)
-                            
+                
                         Toggle(isOn: toggle) {}
                             .toggleStyle(SwitchToggleStyle(tint: .darkBlue))
                             .labelsHidden()
-                            .padding(.leading, -10)
-                            .alert(isPresented: $delegate.alert, content: {
-                                Alert(title: Text("Message"), message: Text("Reply Button is pressed"), dismissButton: .destructive(Text("OK")))
-                            })
-                            
-                        
+                            .padding(.leading, -11)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(lineWidth: 1.5)
+                                    .frame(width: 51, height: 31, alignment: .center)
+                                    .foregroundColor(.darkBlue)
+                                    .padding(.leading, -10)
+                            )
+                                                    
                         Button {
                             self.showingEditView.toggle()
 
@@ -83,8 +85,8 @@ struct AlarmView: View {
                                 repeatDay: alarmData.alarms[alarmIndex].repeatDay,
                                 isNotify: alarmData.alarms[alarmIndex].isNotify
                             )
-                                .environmentObject(self.alarmData)
-                                .preferredColorScheme(.dark)
+                            .environmentObject(self.alarmData)
+                            .preferredColorScheme(.dark)
                         })
                     }
                 )

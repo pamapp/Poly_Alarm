@@ -1,5 +1,5 @@
 //
-//  ButtonStyles.swift
+//  DefaultButtonStyle.swift
 //  alarm
 //
 //  Created by Alina Potapova on 05.04.2021.

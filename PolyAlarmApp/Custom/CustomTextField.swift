@@ -45,17 +45,6 @@ struct CustomTextField: View {
                     }
                 }
             }
-
-//            if !fieldType
-//            {
-//                Button (action: {
-//                    self.hide.toggle()
-//                }) {
-//                    Image(systemName: self.hide ? "eye.fill": "eye.slash.fill")
-//                        .foregroundColor((self.hide) ? Color.darkBlue : Color.darkGray)
-//                        .padding(.trailing, 5)
-//                }
-//            }
             
         }
             .frame(width: curWidth, height: curHeight, alignment: .center)

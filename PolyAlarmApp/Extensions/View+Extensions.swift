@@ -24,7 +24,16 @@ extension View {
         self.modifier(LoginDataText())
     }
     
+    public func editDataStyle() -> some View {
+        self.modifier(EditDataText())
+    }
+    
     public func popUpStyle(width: CGFloat, height: CGFloat) -> some View {
         self.modifier(PopUpStyle(width: width, height: height))
     }
+    
+    public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
 }
+

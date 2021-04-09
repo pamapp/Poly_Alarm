@@ -21,7 +21,7 @@ class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenter
     }
 }
 
-func createNotification(alarm: Alarm) {
+func createNotification(alarm: Alarm, weekDay: Int) {
     let content = UNMutableNotificationContent()
     
     content.title = alarm.label
@@ -29,8 +29,15 @@ func createNotification(alarm: Alarm) {
     content.categoryIdentifier = "ACTIONS"
     content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: alarm.ringtone.fullNameWithType))
     
-    let comps = Calendar.current.dateComponents([.hour, .minute], from: alarm.date)
-    let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
+    var comps = Calendar.current.dateComponents([.hour, .minute], from: alarm.date)
+    
+    if weekDay != 0 {
+        comps.weekday = weekDay
+    }
+    
+    print(comps)
+    
+    let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
     let request = UNNotificationRequest(identifier: "PolyAlarm", content: content, trigger: trigger)
     
     let close = UNNotificationAction(identifier: "CLOSE", title: "Close", options: .destructive)
@@ -40,3 +47,4 @@ func createNotification(alarm: Alarm) {
     UNUserNotificationCenter.current().setNotificationCategories([category])
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
 }
+

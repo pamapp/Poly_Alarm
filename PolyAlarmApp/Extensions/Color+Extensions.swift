@@ -22,6 +22,7 @@ extension Color {
     public static var lightBlue: Color {
         return Color.init(#colorLiteral(red: 0.1083121225, green: 0.08548804373, blue: 0.3145544529, alpha: 1))
     }
+    
     public static var lightGray: Color {
         return Color.white.opacity(0.8)
     }

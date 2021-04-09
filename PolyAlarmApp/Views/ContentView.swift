@@ -8,42 +8,74 @@
 import SwiftUI
 
 struct ContentView: View {
-    init() {
-        UITabBar.appearance().barTintColor = UIColor.white
-    }
     
     @State private var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    @State private var bottomSheetShown = false
+    @State private var showingProfile = true
     
     var body: some View {
-        VStack {
+        ZStack {
             if status {
-                TabView {
-                    ProfileView()
-                        .preferredColorScheme(.dark)
-                        .tabItem {
-                        Image(systemName: "person")
-                        Text("Profile")
-                        }
-
-                    AlarmListView().environmentObject(AlarmData())
-                        .preferredColorScheme(.dark)
-                        .tabItem {
-                            Image(systemName: "alarm")
-                            Text("Alarm")
-                        }
-
-                    SettingsView()
-                        .preferredColorScheme(.dark)
-                        .tabItem {
-                            Image(systemName: "gear")
-                            Text("Settings")
-                        }
-                }.accentColor(.darkBlue)
+                TabBarView(pages: .constant([
+                    TabBarPage(
+                        page: ProfileView()
+                            .preferredColorScheme(.dark),
+                        icon: "person",
+                        tag: "Profile"
+                    ),
+                    TabBarPage(
+                        page: AlarmListView()
+                            .preferredColorScheme(.dark)
+                            .environmentObject(AlarmData()),
+                        icon: "alarm",
+                        tag: "Alarm"
+                    ),
+                    TabBarPage(
+                        page: SettingsView()
+                            .preferredColorScheme(.dark)
+                            .environmentObject(UserData()),
+                        icon: "gear",
+                        tag: "Settings"
+                    )
+                ]), showingBottomSheet: $showingProfile)
+                
+                if self.showingProfile {
+                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: 240) {
+                        Rectangle()
+                            .fill(Color.white)
+                            .overlay(
+                                VStack(alignment: .center, spacing: 16) {
+                                    Text("HELLO!")
+                                        .font(.resistMedium())
+                                        .foregroundColor(.darkBlue)
+                                        .padding(.bottom, 5)
+                                    Text(
+                                        """
+                                        TODAY IS: DAY OF THE WEEK
+                                        YOU HAVE NUMBER OF LESSONS
+                                        FIRST ONE AT CLOCK
+                                        """
+                                    )
+                                        .font(.resistMedium())
+                                        .foregroundColor(.darkBlue)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.top, 5)
+                                    
+                                    Text("WISH YOU A GOOD DAY!")
+                                        .font(.resistMedium())
+                                        .foregroundColor(.darkBlue)
+                                    
+                                    Divider()
+                                        .background(Color.darkBlue)
+                                        .padding(.leading, 30)
+                                        .padding(.trailing, 30)
+                                }
+                            )
+                    }.edgesIgnoringSafeArea(.all)
+                }
+                
             } else {
-                /*NavigationView {
-                    SignUpView()
-                }*/
-                SignUpView()
+                VerificationView()
             }
         } .onAppear {
             NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"), object: nil, queue: .main) {

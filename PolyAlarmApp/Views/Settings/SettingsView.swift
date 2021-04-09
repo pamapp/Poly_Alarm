@@ -8,52 +8,68 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @StateObject var delegate = NotificationDelegate()
-    
-    @State private var settingImages: [String] =
-    [
-        "clock"        , "phone",
-        "person.circle", "person.2",
-        "speaker.2"    , "text.bubble"
-    ]
+    @EnvironmentObject var userData: UserData
 
-    @State private var settingText: [String] =
-    [
+    @State private var showingTimeBefore = false
+    @State private var showingTrustNumbers = false
+    @State private var showingNickname = false
+    @State private var showingGroupNumber = false
+    @State private var showingMessageText = false
+    @State private var showingSignOutText = false
+    
+    private enum ImagesTitles {
+        static let timeBefore = "clock"
+        static let trustNumbers = "phone"
+        static let nickname = "person.circle"
+        static let groupNumber = "person.2"
+        static let message = "text.bubble"
+        static let signOut = "chevron.right.square"
+    }
+    
+    private enum SettingsTitles {
+        static let timeBefore =
+            """
+            WAKE UP TIME
+            BEFORE CLASS
+            """
+        static let trustNumbers =
+            """
+            TRUST
+            NUMBERS
+            """
+        static let nickname =
+            """
+            CHANGE
+            NICKNAME
+            """
+        static let groupNumber =
+            """
+            GROUP
+            NUMBER
+            """
+        static let messageText =
+            """
+            MESSAGE
+            TEXT
+            """
+        static let signOutText =
         """
-        WAKE UP TIME
-        BEFORE CLASS
+        SIGN OUT
+         
         """
-        ,
-        """
-        TRUST
-        NUMBERS
-        """
-        ,
-        """
-        CHANGE
-        NICKNAME
-        """
-        ,
-        """
-        GROUP
-        NUMBER
-        """
-        ,
-        """
-        DEFAULT
-        RINGTONE
-        """
-        ,
-        """
-        MESSAGE
-        TEXT
-        """
-    ]
+    }
+
+    private enum LabelsTexts {
+        static let timeBefore = "IN MINUTE"
+        static let nickname = "NICKNAME"
+        static let groupNumber = "NUMBER"
+        static let messageText = "MESSAGE"
+    }
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.gradientTop, .gradientBottom]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [.gradientTop, .gradientBottom]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 50) {
                 Text("SETTINGS")
@@ -62,60 +78,145 @@ struct SettingsView: View {
             }
             
             VStack(alignment: .center) {
-                ForEach(0..<3) { x in
-                    HStack(alignment: .center) {
-                        ForEach(0..<2) { y in
-                            VStack {
-                                Button(action: {
-                                    print("set")
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 110, height: 110, alignment: .center)
-                                        .foregroundColor(Color.white.opacity(0.8))
-                                        .overlay(
-                                            Image(systemName: settingImages[getIndex(row: x, column: y)])
-                                                .foregroundColor(.darkBlue)
-                                                .font(.system(size: 45))
-                                        )
-                                })
-                                .padding(.leading)
-                                .padding(.trailing)
-                                .onAppear(perform: {
-                                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in }
-                                    UNUserNotificationCenter.current().delegate = delegate
-                                })
-                                .alert(isPresented: $delegate.alert, content: {
-                                    Alert(title: Text("Message"), message: Text("Reply Button is pressed"), dismissButton: .destructive(Text("OK")))
-                                })
-                                
-                                Text(settingText[getIndex(row: x, column: y)])
-                                    .font(.resistMedium(12))
-                                    .foregroundColor(Color.init(#colorLiteral(red: 0.424826026, green: 0.4187176526, blue: 0.4623801708, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }.padding()
-                        }
-                    }
+                
+                HStack(alignment: .center) {
+                    SettingsButtonView(
+                        showingPopUpView: $showingTimeBefore,
+                        imageName: ImagesTitles.timeBefore,
+                        text: SettingsTitles.timeBefore
+                    )
+                    
+                    SettingsButtonView(
+                        showingPopUpView: $showingTrustNumbers,
+                        imageName: ImagesTitles.trustNumbers,
+                        text: SettingsTitles.trustNumbers
+                    ).sheet(
+                        isPresented: self.$showingTrustNumbers,
+                        content: {
+                            TrustNumberListView()
+                                .environmentObject(self.userData)
+                                .preferredColorScheme(.dark)
+                    })
                 }
-            }.padding(.top, 40)
-        }
-    }
-    
-    private func getIndex(row: Int, column: Int) -> Int {
-        let x = row
-        var y = column
-        
-        if x == 1 {
-            y = y + 1
-        }
-        if x == 2 {
-            y = y + 2
-        }
-        return x + y
-    }
-}
+                
+                HStack(alignment: .center) {
+                    SettingsButtonView(
+                        showingPopUpView: $showingNickname,
+                        imageName: ImagesTitles.nickname,
+                        text: SettingsTitles.nickname
+                    )
+                    
+                    SettingsButtonView(
+                        showingPopUpView: $showingGroupNumber,
+                        imageName: ImagesTitles.groupNumber,
+                        text: SettingsTitles.groupNumber
+                    )
+                }
+                
+                HStack(alignment: .center) {
+                    SettingsButtonView(
+                        showingPopUpView: $showingMessageText,
+                        imageName: ImagesTitles.message,
+                        text: SettingsTitles.messageText
+                    )
+                    
+                    SettingsButtonView(
+                        showingPopUpView: $showingSignOutText,
+                        imageName: ImagesTitles.signOut,
+                        text: SettingsTitles.signOutText
+                    )
+                }
+                
+            }
+            
+            if self.showingTimeBefore {
+                ZStack {
+                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
+                        .opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation{
+                                self.showingTimeBefore.toggle()
+                            }
+                        }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
+                    AlarmPopUpTextEditView(
+                        data: $userData.data.timeBefore,
+                        showingEditLabelView: $showingTimeBefore,
+                        edittingData: userData.data.timeBefore,
+                        settingsTitle: SettingsTitles.timeBefore,
+                        textFieldTitle: LabelsTexts.timeBefore,
+                        moreThanOneLine: true
+                    )
+                }
+            }
+            
+            if self.showingNickname {
+                ZStack {
+                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
+                        .opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation{
+                                self.showingNickname.toggle()
+                            }
+                        }
+
+                    AlarmPopUpTextEditView(
+                        data: $userData.data.nickname,
+                        showingEditLabelView: $showingNickname,
+                        edittingData: userData.data.nickname,
+                        settingsTitle: SettingsTitles.nickname,
+                        textFieldTitle: LabelsTexts.nickname,
+                        moreThanOneLine: true
+                    )
+                }
+            }
+            
+            if self.showingGroupNumber {
+                ZStack {
+                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
+                        .opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation{
+                                self.showingGroupNumber.toggle()
+                            }
+                        }
+
+                    AlarmPopUpTextEditView(
+                        data: $userData.data.groupNumber,
+                        showingEditLabelView: $showingGroupNumber,
+                        edittingData: userData.data.groupNumber,
+                        settingsTitle: SettingsTitles.groupNumber,
+                        textFieldTitle: LabelsTexts.groupNumber,
+                        moreThanOneLine: true
+                    )
+                }
+            }
+            
+            if self.showingMessageText {
+                ZStack {
+                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
+                        .opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation{
+                                self.showingMessageText.toggle()
+                            }
+                        }
+
+                    AlarmPopUpTextEditView(
+                        data: $userData.data.messageText,
+                        showingEditLabelView: $showingMessageText,
+                        edittingData: userData.data.messageText,
+                        settingsTitle: SettingsTitles.messageText,
+                        textFieldTitle: LabelsTexts.messageText,
+                        moreThanOneLine: true
+                    )
+                }
+            }
+
+        }
     }
 }

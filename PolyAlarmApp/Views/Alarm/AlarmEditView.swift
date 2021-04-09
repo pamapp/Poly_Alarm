@@ -25,6 +25,13 @@ struct AlarmEditView: View {
     @State var repeatDay: RepeatDay
     @State var isNotify: Bool
     
+    @State private var sureText: String =
+        """
+        ARE YOU SURE THAT
+        YOU WANT
+        TO SAVE CHANGES?
+        """
+     
     var alarmIndex: Int {
         alarmData.alarms.firstIndex(where: { $0.id == alarm.id})!
     }
@@ -40,7 +47,7 @@ struct AlarmEditView: View {
                             .simpleStyle()
                             .padding()
                         
-                        DatePicker("", selection: $date, in: alarmData.alarms[alarmIndex].date..., displayedComponents: .hourAndMinute)
+                        DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
                             .labelsHidden()
                             .datePickerStyle(WheelDatePickerStyle())
                             .scaleEffect(x: 1.3, y: 1.3)
@@ -54,7 +61,7 @@ struct AlarmEditView: View {
                     
                             Divider()
                             
-                            SoundsLabelView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView)
+                            SoundLabelView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView)
                             
                             Divider()
                     
@@ -97,7 +104,14 @@ struct AlarmEditView: View {
                                 self.showingEditLabelView.toggle()
                             }
                         }
-                    AlarmEditNameView(label: $label, showingEditLabelView: $showingEditLabelView, edittingLabel: label)
+                    AlarmPopUpTextEditView(
+                        data: $label,
+                        showingEditLabelView: $showingEditLabelView,
+                        edittingData: label,
+                        settingsTitle: "LABEL SETTINGS",
+                        textFieldTitle: "LABEL",
+                        moreThanOneLine: false
+                    )
                 }
             }
                 
@@ -110,12 +124,15 @@ struct AlarmEditView: View {
                             self.showingEditSoundView.toggle()
                         }
                     }
-                SoundsView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView, edittingRingtone: ringtone)
+                SoundsView(
+                    ringtone: $ringtone,
+                    showingEditSoundView: $showingEditSoundView,
+                    edittingRingtone: ringtone
+                )
             }
             
             if self.showingMakeSureLabelView {
                 ZStack {
-                    
                     CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
@@ -124,16 +141,11 @@ struct AlarmEditView: View {
                                 self.showingMakeSureLabelView.toggle()
                             }
                         }
+                    
                         VStack(spacing: 30) {
-                            
-                            VStack(alignment: .center) {
-                                Text("ARE YOU SURE THAT")
-                                    .simpleStyle()
-                                Text("YOU WANT")
-                                    .simpleStyle()
-                                Text("TO SAVE CHANGES?")
-                                    .simpleStyle()
-                            }
+                            Text(sureText)
+                                .simpleStyle()
+                                .multilineTextAlignment(.center)
                             
                             HStack(alignment: .center, spacing: UIScreen.main.bounds.width / 10) {
                                 Button (action: {
@@ -148,16 +160,14 @@ struct AlarmEditView: View {
                                     DefaultButtonStyle(buttonTitle: "SAVE", buttonWidth: UIScreen.main.bounds.width / 3)
                                 })
                             }
-                            
                         }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3.4)
-                
                 }
             }
             
         }
     }
     
-    func save() {
+    private func save() {
         alarmData.alarms[alarmIndex].date = date
         alarmData.alarms[alarmIndex].ringtone = ringtone
         alarmData.alarms[alarmIndex].repeatDay = repeatDay

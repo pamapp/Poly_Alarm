@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9148093C2620E2FA0077700B /* Application+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148093B2620E2FA0077700B /* Application+Extensions.swift */; };
+		914809402620ECBB0077700B /* TabViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148093F2620ECBB0077700B /* TabViewCustom.swift */; };
+		914809432620ED0C0077700B /* AlarmPopUpTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */; };
+		914809472620ED670077700B /* TrustNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809452620ED670077700B /* TrustNumber.swift */; };
+		914809482620ED670077700B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809462620ED670077700B /* User.swift */; };
+		9148094D2620EF640077700B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148094C2620EF640077700B /* RoundedCorner.swift */; };
+		914809502620EF8A0077700B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148094F2620EF8A0077700B /* UserData.swift */; };
+		914809532620F06C0077700B /* LoadingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809522620F06C0077700B /* LoadingPageView.swift */; };
+		914809592620F0C60077700B /* TrustNumberAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809562620F0C60077700B /* TrustNumberAddView.swift */; };
+		9148095A2620F0C60077700B /* TrustNumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809572620F0C60077700B /* TrustNumberListView.swift */; };
+		9148095B2620F0C60077700B /* TrustNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809582620F0C60077700B /* TrustNumberView.swift */; };
+		9148095F2620F0D40077700B /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148095D2620F0D30077700B /* SettingsButtonView.swift */; };
+		914809692620F1F20077700B /* SoundLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809682620F1F20077700B /* SoundLabelView.swift */; };
+		9148096C2620F2550077700B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148096B2620F2550077700B /* BottomSheetView.swift */; };
 		91AC95C3261B9545000329DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C2261B9545000329DC /* Assets.xcassets */; };
 		91AC95C6261B9545000329DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C5261B9545000329DC /* Preview Assets.xcassets */; };
 		91AC95E5261B96DE000329DC /* CustomBackgroundBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC95E4261B96DE000329DC /* CustomBackgroundBlur.swift */; };
@@ -25,7 +39,7 @@
 		91AC9607261B97E5000329DC /* future.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 91AC9601261B97E5000329DC /* future.mp3 */; };
 		91AC960F261B98C9000329DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC960E261B98C9000329DC /* ContentView.swift */; };
 		91AC9612261B98E1000329DC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9611261B98E1000329DC /* ProfileView.swift */; };
-		91AC9616261B9908000329DC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9614261B9908000329DC /* SignUpView.swift */; };
+		91AC9616261B9908000329DC /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9614261B9908000329DC /* VerificationView.swift */; };
 		91AC9617261B9908000329DC /* CustomBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9615261B9908000329DC /* CustomBackgroundView.swift */; };
 		91AC961A261B9920000329DC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC9619261B9920000329DC /* SettingsView.swift */; };
 		91AC961E261B9999000329DC /* NotifyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC961D261B9999000329DC /* NotifyLabelView.swift */; };
@@ -45,7 +59,7 @@
 		E5BC87C4261E205E000C91F4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C3261E205E000C91F4 /* FirebaseAuth */; };
 		E5BC87C6261E205E000C91F4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C5261E205E000C91F4 /* FirebaseFirestore */; };
 		E5BC87C8261E205E000C91F4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C7261E205E000C91F4 /* FirebaseDatabase */; };
-		E5CD0B6F261B9D2900A9EE92 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */; };
+		E5CD0B6F261B9D2900A9EE92 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B69261B9D2900A9EE92 /* DefaultButtonStyle.swift */; };
 		E5CD0B70261B9D2900A9EE92 /* AlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */; };
 		E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */; };
 		E5CD0B72261B9D2900A9EE92 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6C261B9D2900A9EE92 /* Notification.swift */; };
@@ -54,6 +68,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9148093B2620E2FA0077700B /* Application+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Extensions.swift"; sourceTree = "<group>"; };
+		9148093F2620ECBB0077700B /* TabViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewCustom.swift; sourceTree = "<group>"; };
+		914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmPopUpTextEditView.swift; sourceTree = "<group>"; };
+		914809452620ED670077700B /* TrustNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumber.swift; sourceTree = "<group>"; };
+		914809462620ED670077700B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9148094C2620EF640077700B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		9148094F2620EF8A0077700B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		914809522620F06C0077700B /* LoadingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPageView.swift; sourceTree = "<group>"; };
+		914809562620F0C60077700B /* TrustNumberAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberAddView.swift; sourceTree = "<group>"; };
+		914809572620F0C60077700B /* TrustNumberListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberListView.swift; sourceTree = "<group>"; };
+		914809582620F0C60077700B /* TrustNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberView.swift; sourceTree = "<group>"; };
+		9148095D2620F0D30077700B /* SettingsButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
+		914809682620F1F20077700B /* SoundLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLabelView.swift; sourceTree = "<group>"; };
+		9148096B2620F2550077700B /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		91AC95BB261B953E000329DC /* PolyAlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyAlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AC95C2261B9545000329DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91AC95C5261B9545000329DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -74,7 +102,7 @@
 		91AC9601261B97E5000329DC /* future.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = future.mp3; sourceTree = "<group>"; };
 		91AC960E261B98C9000329DC /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91AC9611261B98E1000329DC /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		91AC9614261B9908000329DC /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		91AC9614261B9908000329DC /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		91AC9615261B9908000329DC /* CustomBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackgroundView.swift; sourceTree = "<group>"; };
 		91AC9619261B9920000329DC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91AC961D261B9999000329DC /* NotifyLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyLabelView.swift; sourceTree = "<group>"; };
@@ -90,7 +118,7 @@
 		91AC965F261BB150000329DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E583FA61261F09DC00994C83 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		E5CD0B69261B9D2900A9EE92 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
 		E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmData.swift; sourceTree = "<group>"; };
 		E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		E5CD0B6C261B9D2900A9EE92 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -113,6 +141,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9148094A2620EE820077700B /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */,
+				E5CD0B6D261B9D2900A9EE92 /* PopUpStyle.swift */,
+				E5CD0B69261B9D2900A9EE92 /* DefaultButtonStyle.swift */,
+				9148094C2620EF640077700B /* RoundedCorner.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		9148094B2620EEC50077700B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				E5CD0B6C261B9D2900A9EE92 /* Notification.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		914809552620F0AF0077700B /* TrustNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				914809562620F0C60077700B /* TrustNumberAddView.swift */,
+				914809572620F0C60077700B /* TrustNumberListView.swift */,
+				914809582620F0C60077700B /* TrustNumberView.swift */,
+			);
+			path = TrustNumbers;
+			sourceTree = "<group>";
+		};
 		91AC95B2261B953E000329DC = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +177,8 @@
 				91AC95BD261B953E000329DC /* PolyAlarmApp */,
 				91AC95EF261B973E000329DC /* Fonts */,
 				91AC95FB261B97C6000329DC /* Sounds */,
+				9148094B2620EEC50077700B /* Notifications */,
+				9148094A2620EE820077700B /* Styles */,
 				91AC95D2261B9642000329DC /* Custom */,
 				91AC95F3261B9781000329DC /* Models */,
 				91AC95E7261B96F3000329DC /* Extensions */,
@@ -159,9 +218,11 @@
 		91AC95D2261B9642000329DC /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */,
 				91AC95E4261B96DE000329DC /* CustomBackgroundBlur.swift */,
 				91AC9615261B9908000329DC /* CustomBackgroundView.swift */,
 				91AC965F261BB150000329DC /* CustomTextField.swift */,
+				9148093F2620ECBB0077700B /* TabViewCustom.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -170,11 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */,
-				E5CD0B69261B9D2900A9EE92 /* ButtonStyles.swift */,
-				E5CD0B6C261B9D2900A9EE92 /* Notification.swift */,
-				E5CD0B6D261B9D2900A9EE92 /* PopUpStyle.swift */,
-				E5CD0B6B261B9D2900A9EE92 /* TextStyles.swift */,
 				E5CD0B6E261B9D2900A9EE92 /* UserDefaultAlarm.swift */,
+				9148094F2620EF8A0077700B /* UserData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -185,6 +243,7 @@
 				91AC95E8261B9719000329DC /* Color+Extensions.swift */,
 				91AC95EA261B9719000329DC /* Font+Extensions.swift */,
 				91AC95E9261B9719000329DC /* View+Extensions.swift */,
+				9148093B2620E2FA0077700B /* Application+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +262,8 @@
 				91AC95F6261B9791000329DC /* Alarm.swift */,
 				91AC95F5261B9791000329DC /* RepeatDay.swift */,
 				91AC95F4261B9791000329DC /* Ringtone.swift */,
+				914809452620ED670077700B /* TrustNumber.swift */,
+				914809462620ED670077700B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,7 +296,8 @@
 		91AC960A261B987A000329DC /* MainPageView */ = {
 			isa = PBXGroup;
 			children = (
-				91AC9614261B9908000329DC /* SignUpView.swift */,
+				914809522620F06C0077700B /* LoadingPageView.swift */,
+				91AC9614261B9908000329DC /* VerificationView.swift */,
 				E583FA61261F09DC00994C83 /* OTPView.swift */,
 			);
 			path = MainPageView;
@@ -245,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				91AC9619261B9920000329DC /* SettingsView.swift */,
+				9148095D2620F0D30077700B /* SettingsButtonView.swift */,
+				914809552620F0AF0077700B /* TrustNumbers */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -267,6 +331,7 @@
 		91AC960D261B98A0000329DC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				9148096B2620F2550077700B /* BottomSheetView.swift */,
 				91AC9611261B98E1000329DC /* ProfileView.swift */,
 			);
 			path = User;
@@ -293,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				91AC9637261B9A74000329DC /* SoundsView.swift */,
+				914809682620F1F20077700B /* SoundLabelView.swift */,
 			);
 			path = SoundView;
 			sourceTree = "<group>";
@@ -392,35 +458,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914809532620F06C0077700B /* LoadingPageView.swift in Sources */,
+				914809692620F1F20077700B /* SoundLabelView.swift in Sources */,
 				91AC9631261B9A4C000329DC /* AlarmRepeatView.swift in Sources */,
 				E5CD0B74261B9D2900A9EE92 /* UserDefaultAlarm.swift in Sources */,
 				91AC95EC261B9719000329DC /* View+Extensions.swift in Sources */,
 				91AC960F261B98C9000329DC /* ContentView.swift in Sources */,
 				91AC961A261B9920000329DC /* SettingsView.swift in Sources */,
+				9148093C2620E2FA0077700B /* Application+Extensions.swift in Sources */,
 				91AC9627261B99EF000329DC /* AlarmAddView.swift in Sources */,
+				914809502620EF8A0077700B /* UserData.swift in Sources */,
+				914809472620ED670077700B /* TrustNumber.swift in Sources */,
 				91AC9617261B9908000329DC /* CustomBackgroundView.swift in Sources */,
 				91AC95ED261B9719000329DC /* Font+Extensions.swift in Sources */,
 				91AC9621261B99C5000329DC /* AlarmListView.swift in Sources */,
 				91AC95F7261B9791000329DC /* Ringtone.swift in Sources */,
+				9148094D2620EF640077700B /* RoundedCorner.swift in Sources */,
 				91AC9632261B9A4C000329DC /* AlarmRepeatCellView.swift in Sources */,
+				914809482620ED670077700B /* User.swift in Sources */,
 				91AC95F8261B9791000329DC /* RepeatDay.swift in Sources */,
+				9148095B2620F0C60077700B /* TrustNumberView.swift in Sources */,
+				9148095F2620F0D40077700B /* SettingsButtonView.swift in Sources */,
 				91AC9612261B98E1000329DC /* ProfileView.swift in Sources */,
 				91AC9638261B9A75000329DC /* SoundsView.swift in Sources */,
 				E5CD0B70261B9D2900A9EE92 /* AlarmData.swift in Sources */,
 				91AC95E5261B96DE000329DC /* CustomBackgroundBlur.swift in Sources */,
+				914809592620F0C60077700B /* TrustNumberAddView.swift in Sources */,
 				E5CD0B73261B9D2900A9EE92 /* PopUpStyle.swift in Sources */,
 				91AC9660261BB150000329DC /* CustomTextField.swift in Sources */,
-				E5CD0B6F261B9D2900A9EE92 /* ButtonStyles.swift in Sources */,
+				E5CD0B6F261B9D2900A9EE92 /* DefaultButtonStyle.swift in Sources */,
 				91AC95EB261B9719000329DC /* Color+Extensions.swift in Sources */,
 				91AC95F9261B9791000329DC /* Alarm.swift in Sources */,
 				E5CD0B72261B9D2900A9EE92 /* Notification.swift in Sources */,
+				914809432620ED0C0077700B /* AlarmPopUpTextEditView.swift in Sources */,
+				9148095A2620F0C60077700B /* TrustNumberListView.swift in Sources */,
 				91AC961E261B9999000329DC /* NotifyLabelView.swift in Sources */,
 				91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */,
 				91AC9628261B99EF000329DC /* AlarmEditView.swift in Sources */,
 				91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */,
+				914809402620ECBB0077700B /* TabViewCustom.swift in Sources */,
 				E583FA62261F09DC00994C83 /* OTPView.swift in Sources */,
 				E5CD0B71261B9D2900A9EE92 /* TextStyles.swift in Sources */,
-				91AC9616261B9908000329DC /* SignUpView.swift in Sources */,
+				9148096C2620F2550077700B /* BottomSheetView.swift in Sources */,
+				91AC9616261B9908000329DC /* VerificationView.swift in Sources */,
 				91AC9626261B99EF000329DC /* AlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

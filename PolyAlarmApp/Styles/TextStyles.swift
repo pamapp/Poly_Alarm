@@ -42,7 +42,17 @@ struct LoginDataText: ViewModifier {
             .accentColor(.darkBlue)
             .multilineTextAlignment(.center)
             .autocapitalization(.allCharacters)
-            
+    }
+}
+
+struct EditDataText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.resistMedium())
+            .foregroundColor(.white)
+            .accentColor(.white)
+            .multilineTextAlignment(.center)
+            .autocapitalization(.allCharacters)
     }
 }
 

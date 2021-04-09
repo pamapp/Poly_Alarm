@@ -1,5 +1,5 @@
 //
-//  AlarmRepeatCellView.swift
+//  AlarmRepeatButtonView.swift
 //  alarm
 //
 //  Created by Alina Potapova on 20.03.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlarmRepeatCellView : View {
+struct AlarmRepeatButtonView : View {
     @Binding var repeatDay: RepeatDay
     @Binding var index: Int
     @State var isContained: Bool

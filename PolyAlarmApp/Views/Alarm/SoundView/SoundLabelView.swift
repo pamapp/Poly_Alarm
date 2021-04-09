@@ -1,32 +1,30 @@
 //
-//  TitleLabelView.swift
-//  alarm
+//  SoundLabelView.swift
+//  PolyAlarmApp
 //
-//  Created by Alina Potapova on 24.03.2021.
+//  Created by Alina Potapova on 07.04.2021.
 //
 
 import SwiftUI
 
-struct TitleLabelView: View {
-    @Binding var label: String
-    @Binding var showingEditLabelView: Bool
+struct SoundLabelView: View {
+    @Binding var ringtone: Ringtone
+    @Binding var showingEditSoundView: Bool
     var body: some View {
         ZStack(alignment: .center) {
             HStack {
-                Text("LABEL")
+                Text("SOUND")
                     .simpleStyle()
-                
                 Spacer()
                 
                 Button (action: {
                     withAnimation {
-                        self.showingEditLabelView.toggle()
+                        self.showingEditSoundView.toggle()
                     }
                 }, label: {
-                    Text(label)
+                    Text(ringtone.fullName.uppercased())
                         .underline()
                         .simpleStyle()
-                        
                 })
             }
             .padding(.all, 5)

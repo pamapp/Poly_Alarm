@@ -46,7 +46,7 @@ struct AlarmAddView: View {
                     
                             Divider()
                             
-                            SoundsLabelView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView)
+                            SoundLabelView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView)
                             
                             Divider()
                             
@@ -90,7 +90,14 @@ struct AlarmAddView: View {
                                 self.showingEditLabelView.toggle()
                             }
                         }
-                    AlarmEditNameView(label: $label, showingEditLabelView: $showingEditLabelView, edittingLabel: label)
+                    AlarmPopUpTextEditView(
+                        data: $label,
+                        showingEditLabelView: $showingEditLabelView,
+                        edittingData: label,
+                        settingsTitle: "LABEL SETTINGS",
+                        textFieldTitle: "LABEL",
+                        moreThanOneLine: false
+                    )
                 }
             }
             
@@ -103,7 +110,11 @@ struct AlarmAddView: View {
                             self.showingEditSoundView.toggle()
                         }
                     }
-                SoundsView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView, edittingRingtone: ringtone)
+                SoundsView(
+                    ringtone: $ringtone,
+                    showingEditSoundView: $showingEditSoundView,
+                    edittingRingtone: ringtone
+                )
             }
             
         }
