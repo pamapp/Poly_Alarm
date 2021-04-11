@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsView: View {
     @EnvironmentObject var userData: UserData
-
     @State private var showingTimeBefore = false
     @State private var showingTrustNumbers = false
     @State private var showingNickname = false
     @State private var showingGroupNumber = false
-    @State private var showingMessageText = false
-    @State private var showingSignOutText = false
+    @State private var showingMessage = false
+    @State private var showingSignOutMakeSure = false
+    @Binding var showingBottomSheet: Bool
+    @Binding var isOpen: Bool
     
     private enum ImagesTitles {
         static let timeBefore = "clock"
@@ -56,6 +58,12 @@ struct SettingsView: View {
         """
         SIGN OUT
          
+        """
+        static let sureText: String =
+        """
+        ARE YOU SURE THAT
+        YOU WANT
+        TO SIGN OUT?
         """
     }
 
@@ -115,13 +123,13 @@ struct SettingsView: View {
                 
                 HStack(alignment: .center) {
                     SettingsButtonView(
-                        showingPopUpView: $showingMessageText,
+                        showingPopUpView: $showingMessage,
                         imageName: ImagesTitles.message,
                         text: SettingsTitles.messageText
                     )
                     
                     SettingsButtonView(
-                        showingPopUpView: $showingSignOutText,
+                        showingPopUpView: $showingSignOutMakeSure,
                         imageName: ImagesTitles.signOut,
                         text: SettingsTitles.signOutText
                     )
@@ -195,20 +203,20 @@ struct SettingsView: View {
                 }
             }
             
-            if self.showingMessageText {
+            if self.showingMessage {
                 ZStack {
                     CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
                             withAnimation{
-                                self.showingMessageText.toggle()
+                                self.showingMessage.toggle()
                             }
                         }
 
                     AlarmPopUpTextEditView(
                         data: $userData.data.messageText,
-                        showingEditLabelView: $showingMessageText,
+                        showingEditLabelView: $showingMessage,
                         edittingData: userData.data.messageText,
                         settingsTitle: SettingsTitles.messageText,
                         textFieldTitle: LabelsTexts.messageText,
@@ -216,7 +224,43 @@ struct SettingsView: View {
                     )
                 }
             }
-
+            
+            if self.showingSignOutMakeSure {
+                ZStack {
+                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
+                        .opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation{
+                                self.showingSignOutMakeSure.toggle()
+                            }
+                        }
+                    
+                        VStack(spacing: 30) {
+                            Text(SettingsTitles.sureText)
+                                .simpleStyle()
+                                .multilineTextAlignment(.center)
+                            
+                            HStack(alignment: .center, spacing: UIScreen.main.bounds.width / 10) {
+                                Button (action: {
+                                    self.showingSignOutMakeSure.toggle()
+                                }, label: {
+                                    DefaultButtonStyle(buttonTitle: "NO", buttonWidth: UIScreen.main.bounds.width / 3)
+                                })
+                                
+                                Button (action: {
+                                    try? Auth.auth().signOut()
+                                    UserDefaults.standard.set(false, forKey: "status")
+                                    NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                                    self.showingBottomSheet.toggle()
+                                    self.isOpen.toggle()
+                                }, label: {
+                                    DefaultButtonStyle(buttonTitle: "YES", buttonWidth: UIScreen.main.bounds.width / 3)
+                                })
+                            }
+                        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3.4)
+                }
+            }
         }
     }
 }

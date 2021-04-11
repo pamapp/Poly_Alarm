@@ -13,12 +13,14 @@ struct ContentView: View {
     @State private var bottomSheetShown = false
     @State private var showingProfile = true
     
+    let hieght: CGFloat = 250
+    
     var body: some View {
         ZStack {
             if status {
                 TabBarView(pages: .constant([
                     TabBarPage(
-                        page: ProfileView()
+                        page: ProfileView(moveMemoji: bottomSheetShown)
                             .preferredColorScheme(.dark),
                         icon: "person",
                         tag: "Profile"
@@ -31,7 +33,10 @@ struct ContentView: View {
                         tag: "Alarm"
                     ),
                     TabBarPage(
-                        page: SettingsView()
+                        page: SettingsView(
+                                showingBottomSheet: $showingProfile,
+                                isOpen: $bottomSheetShown
+                            )
                             .preferredColorScheme(.dark)
                             .environmentObject(UserData()),
                         icon: "gear",
@@ -40,7 +45,7 @@ struct ContentView: View {
                 ]), showingBottomSheet: $showingProfile)
                 
                 if self.showingProfile {
-                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: 240) {
+                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght) {
                         Rectangle()
                             .fill(Color.white)
                             .overlay(
@@ -48,7 +53,7 @@ struct ContentView: View {
                                     Text("HELLO!")
                                         .font(.resistMedium())
                                         .foregroundColor(.darkBlue)
-                                        .padding(.bottom, 5)
+                                    
                                     Text(
                                         """
                                         TODAY IS: DAY OF THE WEEK

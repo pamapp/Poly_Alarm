@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AlarmView: View {
 
-    @StateObject var delegate = NotificationDelegate()
+    @StateObject var delegate = Delegate()
     
     @EnvironmentObject var alarmData: AlarmData
     

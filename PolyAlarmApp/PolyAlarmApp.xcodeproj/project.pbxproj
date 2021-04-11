@@ -14,7 +14,6 @@
 		914809482620ED670077700B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809462620ED670077700B /* User.swift */; };
 		9148094D2620EF640077700B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148094C2620EF640077700B /* RoundedCorner.swift */; };
 		914809502620EF8A0077700B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148094F2620EF8A0077700B /* UserData.swift */; };
-		914809532620F06C0077700B /* LoadingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809522620F06C0077700B /* LoadingPageView.swift */; };
 		914809592620F0C60077700B /* TrustNumberAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809562620F0C60077700B /* TrustNumberAddView.swift */; };
 		9148095A2620F0C60077700B /* TrustNumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809572620F0C60077700B /* TrustNumberListView.swift */; };
 		9148095B2620F0C60077700B /* TrustNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809582620F0C60077700B /* TrustNumberView.swift */; };
@@ -75,7 +74,6 @@
 		914809462620ED670077700B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9148094C2620EF640077700B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		9148094F2620EF8A0077700B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		914809522620F06C0077700B /* LoadingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPageView.swift; sourceTree = "<group>"; };
 		914809562620F0C60077700B /* TrustNumberAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberAddView.swift; sourceTree = "<group>"; };
 		914809572620F0C60077700B /* TrustNumberListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberListView.swift; sourceTree = "<group>"; };
 		914809582620F0C60077700B /* TrustNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrustNumberView.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 		91AC960A261B987A000329DC /* MainPageView */ = {
 			isa = PBXGroup;
 			children = (
-				914809522620F06C0077700B /* LoadingPageView.swift */,
 				91AC9614261B9908000329DC /* VerificationView.swift */,
 				E583FA61261F09DC00994C83 /* OTPView.swift */,
 			);
@@ -458,7 +455,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				914809532620F06C0077700B /* LoadingPageView.swift in Sources */,
 				914809692620F1F20077700B /* SoundLabelView.swift in Sources */,
 				91AC9631261B9A4C000329DC /* AlarmRepeatView.swift in Sources */,
 				E5CD0B74261B9D2900A9EE92 /* UserDefaultAlarm.swift in Sources */,

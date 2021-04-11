@@ -16,7 +16,7 @@ fileprivate enum Constants {
 
 struct BottomSheetView<Content: View>: View {
     @Binding var isOpen: Bool
-
+    
     let maxHeight: CGFloat
     let minHeight: CGFloat
     let content: Content
@@ -48,7 +48,7 @@ struct BottomSheetView<Content: View>: View {
             VStack(spacing: 0) {
                 self.indicator
                     .padding(.top, 15)
-//                    .padding(.bottom, 3)
+                    .padding(.bottom, 3)
                 self.content
             }
             .frame(width: geometry.size.width, height: self.maxHeight)

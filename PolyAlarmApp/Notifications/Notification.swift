@@ -7,20 +7,6 @@
 
 import UserNotifications
 
-class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
-    @Published var alert = false
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.badge, .banner, .sound])
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if response.actionIdentifier == "REPLY" {
-            print("reply do something")
-            self.alert.toggle()
-        }
-        completionHandler()
-    }
-}
-
 func createNotification(alarm: Alarm, weekDay: Int) {
     let content = UNMutableNotificationContent()
     

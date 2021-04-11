@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import UserNotifications
 
 @main
 struct alarmApp: App {
@@ -19,10 +20,28 @@ struct alarmApp: App {
 }
 
 class Delegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(
+        _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
+                success, error in
+          }
         return true
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    }
+}
+
+extension Delegate: UNUserNotificationCenterDelegate, ObservableObject {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent: UNNotification,
+                                withCompletionHandler: @escaping (UNNotificationPresentationOptions)->()) {
+        withCompletionHandler([.banner, .sound, .badge])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive: UNNotificationResponse,
+                                withCompletionHandler: @escaping ()->()) {
+        withCompletionHandler()
     }
 }
