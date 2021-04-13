@@ -13,11 +13,11 @@ struct User: Codable, Identifiable {
     var nickname: String
     var groupNumber: String
     var messageText: String
-    var trustNumbers: [TrustNumber]
+    
 }
 
 extension User {
     static var defaultUserData: User {
-        User(id: UUID(), timeBefore: "120", nickname: "USER", groupNumber: "3530202/90002", messageText: "Wake me up!", trustNumbers: TrustNumber.defaultTrustNumber)
+        User(id: UUID(), timeBefore: "120", nickname: "USER", groupNumber: "3530202/90002", messageText: "Wake me up!")
     }
 }

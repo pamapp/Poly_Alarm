@@ -9,17 +9,17 @@ import SwiftUI
 import Combine
 
 struct TrustNumberAddView: View {
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var trustNumData: TrustNumberData
     @Binding var showingAddLabelView: Bool
     
     @State var name: String = ""
     @State var number: String = ""
     @State var isEnabled: Bool = false
     @State var popUpAddTitle: String =
-    """
-    ADD
-    TRUST NUMBER
-    """
+        """
+        TRUST NUMBERS
+        SETTINGS
+        """
     
     var body: some View {
         VStack(spacing: UIScreen.main.bounds.width / 9) {
@@ -85,7 +85,7 @@ struct TrustNumberAddView: View {
                 phoneNumber: number,
                 isEnabled: true
             )
-            self.userData.data.trustNumbers.append(newTrustNumber)
+            self.trustNumData.trustNumbers.append(newTrustNumber)
         }
         self.showingAddLabelView.toggle()
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrustNumberListView : View {
     
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var trustNumData: TrustNumberData
 
     @State private var showingAddView = false
     
@@ -27,9 +27,11 @@ struct TrustNumberListView : View {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center, spacing: 40) {
-                        ForEach(self.userData.data.trustNumbers) { number in
-                            TrustNumberView(editView: $showingEditView, trustNumber: number)
-                                .environmentObject(self.userData)
+                        ForEach(self.trustNumData.trustNumbers.indexed(), id: \.1.id) { index, _ in
+                            TrustNumberView(
+                                editView: $showingEditView,
+                                trustNumber: self.trustNumData.trustNumbers[index]
+                            )
                         }
                     }
                 }.padding(.top, 30)
@@ -63,7 +65,7 @@ struct TrustNumberListView : View {
                         }
                     }
                     TrustNumberAddView(showingAddLabelView: $showingAddView)
-                        .environmentObject(self.userData)
+                        .environmentObject(self.trustNumData)
                         .preferredColorScheme(.dark)
 
                 }
@@ -79,51 +81,11 @@ struct TrustNumberListView : View {
                             self.showingAddView.toggle()
                         }
                     }
-                    VStack(spacing: UIScreen.main.bounds.width / 9) {
-                        Text(
-                            """
-                            TRUST NUMBERS
-                            SETTINGS
-                            """
-                        )
-                            .simpleStyle()
-                            .multilineTextAlignment(.center)
-                        
-                        HStack(alignment: .center, spacing: UIScreen.main.bounds.width / 10) {
-                        
-                            Button (action: {
-                                self.delete()
-                            }, label: {
-                                DefaultButtonStyle(buttonTitle: "DELETE", buttonWidth: UIScreen.main.bounds.width / 3)
-                            })
-                            
-                            Button (action: {
-                                self.done()
-                            }, label: {
-                                DefaultButtonStyle(buttonTitle: "DONE", buttonWidth: UIScreen.main.bounds.width / 3)
-                            })
-                            
-                        }
-                    }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2)
+
+                    
                 }
             }
         }
-    }
-    private func delete() {
-        self.showingEditView.toggle()
-    }
-    
-    private func done() {
-//        if !name.isEmpty && !number.isEmpty {
-//            let newTrustNumber = TrustNumber(
-//                id: UUID(),
-//                name: name,
-//                phoneNumber: number,
-//                isEnabled: true
-//            )
-//            self.userData.data.trustNumbers.append(newTrustNumber)
-//        }
-        self.showingEditView.toggle()
     }
 
 }

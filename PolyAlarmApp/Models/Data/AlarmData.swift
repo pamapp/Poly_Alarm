@@ -5,12 +5,12 @@
 //  Created by Alina Potapova on 19.03.2021.
 //
 
-import Combine
 import SwiftUI
+import Combine
 
 final class AlarmData: ObservableObject {
     let didChange = PassthroughSubject<AlarmData, Never>()
-    @UserDefaultAlarm(key: "Alarms", defaultValue: Alarm.defaultAlarm)
+    @UserDefault(key: "Alarms", defaultValue: Alarm.defaultAlarm)
     
     var alarms: [Alarm] {
         didSet {

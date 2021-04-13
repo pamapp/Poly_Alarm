@@ -52,6 +52,8 @@
 		91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963B261B9A8F000329DC /* TitleLabelView.swift */; };
 		91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963E261B9AD3000329DC /* PolyAlamApp.swift */; };
 		91AC9660261BB150000329DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC965F261BB150000329DC /* CustomTextField.swift */; };
+		91D3449D2626199E008E8303 /* TrustNumberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D3449C2626199E008E8303 /* TrustNumberData.swift */; };
+		91D344A62626240C008E8303 /* TrustNumberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D344A52626240C008E8303 /* TrustNumberEditView.swift */; };
 		E583FA62261F09DC00994C83 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FA61261F09DC00994C83 /* OTPView.swift */; };
 		E5BC87BE261E200F000C91F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */; };
 		E5BC87C2261E205E000C91F4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E5BC87C1261E205E000C91F4 /* FirebaseStorage */; };
@@ -114,6 +116,8 @@
 		91AC963B261B9A8F000329DC /* TitleLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		91AC963E261B9AD3000329DC /* PolyAlamApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyAlamApp.swift; sourceTree = "<group>"; };
 		91AC965F261BB150000329DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		91D3449C2626199E008E8303 /* TrustNumberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustNumberData.swift; sourceTree = "<group>"; };
+		91D344A52626240C008E8303 /* TrustNumberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustNumberEditView.swift; sourceTree = "<group>"; };
 		E583FA61261F09DC00994C83 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		E5BC87BD261E200F000C91F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5CD0B69261B9D2900A9EE92 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
@@ -161,9 +165,10 @@
 		914809552620F0AF0077700B /* TrustNumbers */ = {
 			isa = PBXGroup;
 			children = (
-				914809562620F0C60077700B /* TrustNumberAddView.swift */,
-				914809572620F0C60077700B /* TrustNumberListView.swift */,
 				914809582620F0C60077700B /* TrustNumberView.swift */,
+				914809572620F0C60077700B /* TrustNumberListView.swift */,
+				914809562620F0C60077700B /* TrustNumberAddView.swift */,
+				91D344A52626240C008E8303 /* TrustNumberEditView.swift */,
 			);
 			path = TrustNumbers;
 			sourceTree = "<group>";
@@ -180,7 +185,6 @@
 				91AC95D2261B9642000329DC /* Custom */,
 				91AC95F3261B9781000329DC /* Models */,
 				91AC95E7261B96F3000329DC /* Extensions */,
-				91AC95D6261B9697000329DC /* Data */,
 				91AC9609261B983D000329DC /* Views */,
 				91AC95BC261B953E000329DC /* Products */,
 			);
@@ -228,9 +232,10 @@
 		91AC95D6261B9697000329DC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */,
 				E5CD0B6E261B9D2900A9EE92 /* UserDefaultAlarm.swift */,
+				E5CD0B6A261B9D2900A9EE92 /* AlarmData.swift */,
 				9148094F2620EF8A0077700B /* UserData.swift */,
+				91D3449C2626199E008E8303 /* TrustNumberData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 		91AC95F3261B9781000329DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				91AC95D6261B9697000329DC /* Data */,
 				91AC95F6261B9791000329DC /* Alarm.swift */,
 				91AC95F5261B9791000329DC /* RepeatDay.swift */,
 				91AC95F4261B9791000329DC /* Ringtone.swift */,
@@ -460,6 +466,7 @@
 				E5CD0B74261B9D2900A9EE92 /* UserDefaultAlarm.swift in Sources */,
 				91AC95EC261B9719000329DC /* View+Extensions.swift in Sources */,
 				91AC960F261B98C9000329DC /* ContentView.swift in Sources */,
+				91D3449D2626199E008E8303 /* TrustNumberData.swift in Sources */,
 				91AC961A261B9920000329DC /* SettingsView.swift in Sources */,
 				9148093C2620E2FA0077700B /* Application+Extensions.swift in Sources */,
 				91AC9627261B99EF000329DC /* AlarmAddView.swift in Sources */,
@@ -482,6 +489,7 @@
 				914809592620F0C60077700B /* TrustNumberAddView.swift in Sources */,
 				E5CD0B73261B9D2900A9EE92 /* PopUpStyle.swift in Sources */,
 				91AC9660261BB150000329DC /* CustomTextField.swift in Sources */,
+				91D344A62626240C008E8303 /* TrustNumberEditView.swift in Sources */,
 				E5CD0B6F261B9D2900A9EE92 /* DefaultButtonStyle.swift in Sources */,
 				91AC95EB261B9719000329DC /* Color+Extensions.swift in Sources */,
 				91AC95F9261B9791000329DC /* Alarm.swift in Sources */,

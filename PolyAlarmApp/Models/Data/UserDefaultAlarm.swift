@@ -7,7 +7,7 @@
 
 import Foundation
 
-@propertyWrapper struct UserDefaultAlarm<Value: Codable> {
+@propertyWrapper struct UserDefault<Value: Codable> {
     let key: String
     let defaultValue: Value
 

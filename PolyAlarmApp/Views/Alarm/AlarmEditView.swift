@@ -31,7 +31,7 @@ struct AlarmEditView: View {
         YOU WANT
         TO SAVE CHANGES?
         """
-     
+
     var alarmIndex: Int {
         alarmData.alarms.firstIndex(where: { $0.id == alarm.id})!
     }
@@ -155,7 +155,7 @@ struct AlarmEditView: View {
                                 })
                                 
                                 Button (action: {
-                                    self.save()
+                                    save()
                                 }, label: {
                                     DefaultButtonStyle(buttonTitle: "SAVE", buttonWidth: UIScreen.main.bounds.width / 3)
                                 })
@@ -176,9 +176,9 @@ struct AlarmEditView: View {
         self.isPresented.wrappedValue.dismiss()
     }
 
+    
     private func delete() {
-//        alarmData.alarms.remove(at: alarmIndex)
+        alarmData.alarms.remove(at: alarmIndex)
         self.isPresented.wrappedValue.dismiss()
     }
-    
 }

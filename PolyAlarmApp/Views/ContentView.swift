@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     @State private var bottomSheetShown = false
     @State private var showingProfile = true
+    @State private var changeMale = true
     
     let hieght: CGFloat = 250
     
@@ -20,7 +21,7 @@ struct ContentView: View {
             if status {
                 TabBarView(pages: .constant([
                     TabBarPage(
-                        page: ProfileView(moveMemoji: bottomSheetShown)
+                        page: ProfileView(moveMemoji: bottomSheetShown, changeMale: changeMale)
                             .preferredColorScheme(.dark),
                         icon: "person",
                         tag: "Profile"
@@ -38,7 +39,8 @@ struct ContentView: View {
                                 isOpen: $bottomSheetShown
                             )
                             .preferredColorScheme(.dark)
-                            .environmentObject(UserData()),
+                            .environmentObject(UserData())
+                            .environmentObject(TrustNumberData()),
                         icon: "gear",
                         tag: "Settings"
                     )

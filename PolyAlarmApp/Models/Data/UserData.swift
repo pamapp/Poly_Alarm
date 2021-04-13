@@ -10,7 +10,7 @@ import Combine
 
 final class UserData: ObservableObject {
     let didChange = PassthroughSubject<UserData, Never>()
-    @UserDefaultAlarm(key: "Settings", defaultValue: User.defaultUserData)
+    @UserDefault(key: "Settings", defaultValue: User.defaultUserData)
     
     var data: User {
         didSet {

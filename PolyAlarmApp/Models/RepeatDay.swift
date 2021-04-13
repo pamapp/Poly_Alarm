@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RepeatDay: OptionSet, Codable {
+struct RepeatDay: OptionSet, Codable, Hashable {
     let rawValue: Int
 
     static let mon = RepeatDay(rawValue: 1 << 0)
@@ -31,14 +31,15 @@ struct RepeatDay: OptionSet, Codable {
         return ""
     }
     
-    var getWeekDayIndex: Int {
-        if contains(.sun) {  return 1 }
-        if contains(.mon) {  return 2 }
-        if contains(.tue) {  return 3 }
-        if contains(.wed) {  return 4 }
-        if contains(.thu) {  return 5 }
-        if contains(.fri) {  return 6 }
-        if contains(.sat) {  return 7 }
-        return 0
+    var repeatDaysIndexes: [Int] {
+        var days: [Int] = []
+        if contains(.sun) {  days += [1] }
+        if contains(.mon) {  days += [2] }
+        if contains(.tue) {  days += [3] }
+        if contains(.wed) {  days += [4] }
+        if contains(.thu) {  days += [5] }
+        if contains(.fri) {  days += [6] }
+        if contains(.sat) {  days += [7] }
+        return days
     }
 }

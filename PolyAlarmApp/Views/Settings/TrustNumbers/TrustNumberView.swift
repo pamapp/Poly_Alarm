@@ -9,28 +9,35 @@ import SwiftUI
 
 struct TrustNumberView: View {
     
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var trustNumData: TrustNumberData
     
     @Binding var editView: Bool
     
     let trustNumber: TrustNumber
     
     var trustNumberIndex: Int {
-        userData.data.trustNumbers.firstIndex(where: { $0.id == trustNumber.id})!
+        trustNumData.trustNumbers.firstIndex(where: { $0.id == trustNumber.id})!
     }
     
     var body: some View {
         ZStack {
+            let toggleTrust = Binding<Bool> (
+                get: { self.trustNumber.isEnabled },
+                set: { newValue in
+                    self.trustNumData.trustNumbers[trustNumberIndex].isEnabled = newValue
+                }
+            )
+            
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 110, alignment: .center)
-                .foregroundColor(userData.data.trustNumbers[trustNumberIndex].isEnabled ? .lightGray : .darkGray)
+                .foregroundColor(trustNumber.isEnabled ? .lightGray : .darkGray)
                 .overlay (
                     HStack(alignment: .center, spacing: 45) {
                         Text("\(self.trustNumber.name)")
                             .font(.resistMedium(22))
                             .foregroundColor(.darkBlue)
                 
-                        Toggle("", isOn: $userData.data.trustNumbers[trustNumberIndex].isEnabled)
+                        Toggle(isOn: toggleTrust) {}
                             .toggleStyle(SwitchToggleStyle(tint: .darkBlue))
                             .labelsHidden()
                             .padding(.leading, -11)
@@ -53,10 +60,17 @@ struct TrustNumberView: View {
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.darkBlue, lineWidth: 2)
                                 )
-                        }
+                        }.sheet(isPresented: self.$editView, content: {
+                            TrustNumberEditView(
+                                trustNumber: trustNumber,
+                                name: trustNumData.trustNumbers[trustNumberIndex].name,
+                                phoneNumber: trustNumData.trustNumbers[trustNumberIndex].phoneNumber
+                            )
+                            .environmentObject(self.trustNumData)
+                            .preferredColorScheme(.dark)
+                        })
                     }
                 )
         }
     }
 }
-

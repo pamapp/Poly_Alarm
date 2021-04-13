@@ -20,12 +20,11 @@ struct alarmApp: App {
 }
 
 class Delegate: NSObject, UIApplicationDelegate {
-    func application(
-        _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
-                success, error in
-          }
+            success, error in
+        }
         return true
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

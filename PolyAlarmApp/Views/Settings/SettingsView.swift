@@ -10,6 +10,7 @@ import Firebase
 
 struct SettingsView: View {
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var trustNumData: TrustNumberData
     @State private var showingTimeBefore = false
     @State private var showingTrustNumbers = false
     @State private var showingNickname = false
@@ -102,7 +103,7 @@ struct SettingsView: View {
                         isPresented: self.$showingTrustNumbers,
                         content: {
                             TrustNumberListView()
-                                .environmentObject(self.userData)
+                                .environmentObject(self.trustNumData)
                                 .preferredColorScheme(.dark)
                     })
                 }

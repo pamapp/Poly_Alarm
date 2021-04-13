@@ -7,7 +7,7 @@
 
 import UserNotifications
 
-func createNotification(alarm: Alarm, weekDay: Int) {
+func createNotification(alarm: Alarm, weekDays: [Int]) {
     let content = UNMutableNotificationContent()
     
     content.title = alarm.label
@@ -15,21 +15,22 @@ func createNotification(alarm: Alarm, weekDay: Int) {
     content.categoryIdentifier = "ACTIONS"
     content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: alarm.ringtone.fullNameWithType))
     
-    var comps = Calendar.current.dateComponents([.hour, .minute], from: alarm.date)
+    var alarmComps = Calendar.current.dateComponents([.hour, .minute], from: alarm.date)
+    let currentComps = Calendar.current.dateComponents([.weekday], from: Date())
     
-    if weekDay != 0 {
-        comps.weekday = weekDay
+    if !weekDays.isEmpty {
+        if weekDays.contains(currentComps.weekday ?? 0) {
+            alarmComps.weekday = currentComps.weekday
+        }
     }
     
-    print(comps)
-    
-    let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: alarmComps, repeats: true)
     let request = UNNotificationRequest(identifier: "PolyAlarm", content: content, trigger: trigger)
     
-    let close = UNNotificationAction(identifier: "CLOSE", title: "Close", options: .destructive)
-    let reply = UNNotificationAction(identifier: "REPLY", title: "Reply", options: .foreground)
+//    let close = UNNotificationAction(identifier: "CLOSE", title: "Close", options: .destructive)
+    let reply = UNNotificationAction(identifier: "IWOKEUP", title: "I WOKE UP", options: .foreground)
     
-    let category = UNNotificationCategory(identifier: "ACTIONS", actions: [close, reply], intentIdentifiers: [], options: [])
+    let category = UNNotificationCategory(identifier: "ACTIONS", actions: [reply], intentIdentifiers: [], options: [])
     UNUserNotificationCenter.current().setNotificationCategories([category])
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
 }

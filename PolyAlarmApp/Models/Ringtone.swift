@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Ringtone: OptionSet, Codable {
+struct Ringtone: OptionSet, Codable, Hashable {
     let rawValue: Int
 
     static let radar   = Ringtone(rawValue: 1 << 0)

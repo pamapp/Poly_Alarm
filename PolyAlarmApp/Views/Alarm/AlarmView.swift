@@ -19,13 +19,7 @@ struct AlarmView: View {
     @State var date = Date()
     
     let alarm: Alarm
-    
-    let timeFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter
-    }()
-    
+
     var alarmIndex: Int {
         alarmData.alarms.firstIndex(where: { $0.id == alarm.id})!
     }
@@ -33,23 +27,25 @@ struct AlarmView: View {
     var body: some View {
         ZStack {
             let toggle = Binding<Bool> (
-                get: { self.alarmData.alarms[alarmIndex].isEnabled },
+                get: { self.alarm.isEnabled },
                 set: { newValue in
                     self.alarmData.alarms[alarmIndex].isEnabled = newValue
-                    createNotification(
-                        alarm: alarmData.alarms[alarmIndex],
-                        weekDay: alarmData.alarms[alarmIndex].repeatDay.getWeekDayIndex
-                    )
-                    UNUserNotificationCenter.current().delegate = delegate
+//                    if self.alarm.isEnabled {
+                        createNotification(
+                            alarm: alarm,
+                            weekDays: alarm.repeatDay.repeatDaysIndexes
+                        )
+                        UNUserNotificationCenter.current().delegate = delegate
+//                    }
                 }
             )
             
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 110, alignment: .center)
-                .foregroundColor(alarmData.alarms[alarmIndex].isEnabled ? .lightGray : .darkGray)
+                .foregroundColor(alarm.isEnabled ? .lightGray : .darkGray)
                 .overlay (
                     HStack(alignment: .center, spacing: 45) {
-                        Text("\(self.alarm.date, formatter: self.timeFormat)")
+                        Text("\(self.alarm.timeFormat)")
                             .font(.resistMedium(25))
                             .foregroundColor(.darkBlue)
                 
@@ -67,7 +63,6 @@ struct AlarmView: View {
                                                     
                         Button {
                             self.showingEditView.toggle()
-
                         } label: {
                             Image(systemName: "gear")
                                 .font(.system(size: 40))

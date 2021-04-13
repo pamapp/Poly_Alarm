@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct AlarmListView : View {
-    
+    @EnvironmentObject var alarmData: AlarmData
+
     @State var date = Date()
     
     @State private var showingAddView = false
-    
-    @EnvironmentObject var alarmData: AlarmData
 
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "ResistSansDisplay-MediumOblique", size: 40)!]
@@ -42,8 +41,8 @@ struct AlarmListView : View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center, spacing: 50) {
-                        ForEach(self.alarmData.alarms) { alarm in
-                            AlarmView(alarm: alarm)
+                        ForEach(self.alarmData.alarms.indexed(), id: \.1.id) { index, _ in
+                            AlarmView(alarm: self.alarmData.alarms[index])
                         }
                     }
                 }
@@ -69,13 +68,12 @@ struct AlarmListView : View {
                             .environmentObject(self.alarmData)
                             .preferredColorScheme(.dark)
                     })
-                
 
                 Spacer()
             }
         }
     }
-
+    
     var timeFormat: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
