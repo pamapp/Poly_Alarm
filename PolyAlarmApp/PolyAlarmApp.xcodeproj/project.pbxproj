@@ -20,6 +20,7 @@
 		9148095F2620F0D40077700B /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148095D2620F0D30077700B /* SettingsButtonView.swift */; };
 		914809692620F1F20077700B /* SoundLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809682620F1F20077700B /* SoundLabelView.swift */; };
 		9148096C2620F2550077700B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148096B2620F2550077700B /* BottomSheetView.swift */; };
+		916296C6262A1ACC00D0AE47 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916296C5262A1ACC00D0AE47 /* RegistrationView.swift */; };
 		91AC95C3261B9545000329DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C2261B9545000329DC /* Assets.xcassets */; };
 		91AC95C6261B9545000329DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C5261B9545000329DC /* Preview Assets.xcassets */; };
 		91AC95E5261B96DE000329DC /* CustomBackgroundBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC95E4261B96DE000329DC /* CustomBackgroundBlur.swift */; };
@@ -82,6 +83,7 @@
 		9148095D2620F0D30077700B /* SettingsButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		914809682620F1F20077700B /* SoundLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLabelView.swift; sourceTree = "<group>"; };
 		9148096B2620F2550077700B /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		916296C5262A1ACC00D0AE47 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		91AC95BB261B953E000329DC /* PolyAlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyAlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AC95C2261B9545000329DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91AC95C5261B9545000329DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		91AC95D2261B9642000329DC /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				9148096B2620F2550077700B /* BottomSheetView.swift */,
 				914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */,
 				91AC95E4261B96DE000329DC /* CustomBackgroundBlur.swift */,
 				91AC9615261B9908000329DC /* CustomBackgroundView.swift */,
@@ -302,6 +305,7 @@
 			children = (
 				91AC9614261B9908000329DC /* VerificationView.swift */,
 				E583FA61261F09DC00994C83 /* OTPView.swift */,
+				916296C5262A1ACC00D0AE47 /* RegistrationView.swift */,
 			);
 			path = MainPageView;
 			sourceTree = "<group>";
@@ -334,7 +338,6 @@
 		91AC960D261B98A0000329DC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				9148096B2620F2550077700B /* BottomSheetView.swift */,
 				91AC9611261B98E1000329DC /* ProfileView.swift */,
 			);
 			path = User;
@@ -489,6 +492,7 @@
 				914809592620F0C60077700B /* TrustNumberAddView.swift in Sources */,
 				E5CD0B73261B9D2900A9EE92 /* PopUpStyle.swift in Sources */,
 				91AC9660261BB150000329DC /* CustomTextField.swift in Sources */,
+				916296C6262A1ACC00D0AE47 /* RegistrationView.swift in Sources */,
 				91D344A62626240C008E8303 /* TrustNumberEditView.swift in Sources */,
 				E5CD0B6F261B9D2900A9EE92 /* DefaultButtonStyle.swift in Sources */,
 				91AC95EB261B9719000329DC /* Color+Extensions.swift in Sources */,

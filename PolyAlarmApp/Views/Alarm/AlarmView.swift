@@ -14,11 +14,11 @@ struct AlarmView: View {
     
     @EnvironmentObject var alarmData: AlarmData
     
-    @State private var showingEditView = false
+    @State private var showingEditAlarmView = false
    
     @State var date = Date()
     
-    let alarm: Alarm
+    var alarm: Alarm
 
     var alarmIndex: Int {
         alarmData.alarms.firstIndex(where: { $0.id == alarm.id})!
@@ -62,7 +62,7 @@ struct AlarmView: View {
                             )
                                                     
                         Button {
-                            self.showingEditView.toggle()
+                            self.showingEditAlarmView.toggle()
                         } label: {
                             Image(systemName: "gear")
                                 .font(.system(size: 40))
@@ -71,14 +71,14 @@ struct AlarmView: View {
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.darkBlue, lineWidth: 2)
                                 )
-                        }.sheet(isPresented: self.$showingEditView, content: {
+                        }.sheet(isPresented: self.$showingEditAlarmView, content: {
                             AlarmEditView(
                                 alarm: alarm,
-                                date: alarmData.alarms[alarmIndex].date,
-                                label: alarmData.alarms[alarmIndex].label,
-                                ringtone: alarmData.alarms[alarmIndex].ringtone,
-                                repeatDay: alarmData.alarms[alarmIndex].repeatDay,
-                                isNotify: alarmData.alarms[alarmIndex].isNotify
+                                dateEdit: alarmData.alarms[alarmIndex].date,
+                                labelEdit: alarmData.alarms[alarmIndex].label,
+                                ringtoneEdit: alarmData.alarms[alarmIndex].ringtone,
+                                repeatDayEdit: alarmData.alarms[alarmIndex].repeatDay,
+                                isNotifyEdit: alarmData.alarms[alarmIndex].isNotify
                             )
                             .environmentObject(self.alarmData)
                             .preferredColorScheme(.dark)

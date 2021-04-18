@@ -11,9 +11,9 @@ struct TrustNumberListView : View {
     
     @EnvironmentObject var trustNumData: TrustNumberData
 
-    @State private var showingAddView = false
+    @State private var showingAddNumberView = false
     
-    @State private var showingEditView = false
+    @State private var showingEditNumberView = false
 
     var body: some View {
         ZStack {
@@ -29,7 +29,7 @@ struct TrustNumberListView : View {
                     VStack(alignment: .center, spacing: 40) {
                         ForEach(self.trustNumData.trustNumbers.indexed(), id: \.1.id) { index, _ in
                             TrustNumberView(
-                                editView: $showingEditView,
+                                editView: $showingEditNumberView,
                                 trustNumber: self.trustNumData.trustNumbers[index]
                             )
                         }
@@ -37,7 +37,7 @@ struct TrustNumberListView : View {
                 }.padding(.top, 30)
                 
                 Button (action: {
-                    self.showingAddView.toggle()
+                    self.showingAddNumberView.toggle()
                 }, label: {
                     RoundedRectangle(cornerRadius: 15.0)
                         .stroke(Color.white, lineWidth: 1)
@@ -54,31 +54,31 @@ struct TrustNumberListView : View {
                 }).padding(.bottom).padding(.top)
             }
             
-            if self.showingAddView {
+            if self.showingAddNumberView {
                 ZStack{
                     CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
                     .opacity(0.9)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         withAnimation{
-                            self.showingAddView.toggle()
+                            self.showingAddNumberView.toggle()
                         }
                     }
-                    TrustNumberAddView(showingAddLabelView: $showingAddView)
+                    TrustNumberAddView(showingAddLabelView: $showingAddNumberView)
                         .environmentObject(self.trustNumData)
                         .preferredColorScheme(.dark)
 
                 }
             }
             
-            if self.showingEditView {
+            if self.showingEditNumberView {
                 ZStack{
                     CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
                     .opacity(0.9)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         withAnimation{
-                            self.showingAddView.toggle()
+                            self.showingEditNumberView.toggle()
                         }
                     }
 

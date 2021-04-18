@@ -92,7 +92,7 @@ struct AlarmAddView: View {
                         }
                     AlarmPopUpTextEditView(
                         data: $label,
-                        showingEditLabelView: $showingEditLabelView,
+                        showingPopUpEditView: $showingEditLabelView,
                         edittingData: label,
                         settingsTitle: "LABEL SETTINGS",
                         textFieldTitle: "LABEL",
@@ -140,11 +140,3 @@ struct AlarmAddView: View {
     }
     
 }
-
-struct AlarmAddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlarmAddView()
-            .preferredColorScheme(.dark)
-    }
-}
-

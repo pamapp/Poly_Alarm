@@ -10,7 +10,7 @@ import Combine
 import Firebase
 
 struct VerificationView: View {
-    @State private var loading = false
+    @State private var loadingVerify = false
     @State private var phoneNumderField: String = ""
     @State private var codeField: String = "7"
     @State private var alert: Bool = false
@@ -77,7 +77,7 @@ struct VerificationView: View {
                                 
                                 NavigationLink(destination: OTPView(show: $show, ID: $ID), isActive: $show) {
                                     Button(action: {
-                                        self.loading.toggle()
+                                        self.loadingVerify.toggle()
                                         UIApplication.shared.endEditing()
                                         PhoneAuthProvider.provider().verifyPhoneNumber("+" + self.codeField + self.phoneNumderField, uiDelegate: nil) {
                                             (ID, err) in
@@ -88,7 +88,7 @@ struct VerificationView: View {
                                             }
                                             self.ID = ID!
                                             self.show.toggle()
-                                            self.loading.toggle()
+                                            self.loadingVerify.toggle()
                                         }
                                     }) {
                                         RoundedRectangle(cornerRadius: 15)
@@ -108,7 +108,7 @@ struct VerificationView: View {
                         )
                 }.frame(width: 320, height: 240, alignment: .center)
                 
-                if self.loading {
+                if self.loadingVerify {
                     ZStack {
                         CustomBackgroundView()
                             .ignoresSafeArea(.keyboard)

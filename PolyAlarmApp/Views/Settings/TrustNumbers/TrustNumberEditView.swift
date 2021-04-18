@@ -82,7 +82,6 @@ struct TrustNumberEditView: View {
     
     private func delete() {
         trustNumData.trustNumbers.remove(at: trustNumberIndex)
-//        self.showingEditLabelView.toggle()
         self.isPresented.wrappedValue.dismiss()
     }
     
@@ -91,7 +90,6 @@ struct TrustNumberEditView: View {
             trustNumData.trustNumbers[trustNumberIndex].name = name
             trustNumData.trustNumbers[trustNumberIndex].phoneNumber = phoneNumber
         }
-//        self.showingEditLabelView.toggle()
         self.isPresented.wrappedValue.dismiss()
     }
 }

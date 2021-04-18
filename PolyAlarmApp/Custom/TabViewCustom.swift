@@ -9,7 +9,7 @@ import SwiftUI
 struct TabBarView: View {
     @Binding var pages: [TabBarPage]
     @Binding var showingBottomSheet: Bool
-    @State var selectedTab = ""
+    @State var selectedTab = "Profile"
     
     init(pages: Binding<[TabBarPage]>, showingBottomSheet: Binding<Bool>) {
         UITabBar.appearance().isHidden = true

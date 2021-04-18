@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AlarmPopUpTextEditView: View {
     @Binding var data: String
-    @Binding var showingEditLabelView: Bool
+    @Binding var showingPopUpEditView: Bool
     @State var edittingData: String
     @State var settingsTitle: String
     @State var textFieldTitle: String
@@ -45,17 +45,16 @@ struct AlarmPopUpTextEditView: View {
                 })
             }
         }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3)
-
     }
     
     private func save() {
         if !edittingData.isEmpty {
             data = edittingData
         }
-        self.showingEditLabelView.toggle()
+        self.showingPopUpEditView.toggle()
     }
     
     private func cancel() {
-        self.showingEditLabelView.toggle()
+        self.showingPopUpEditView.toggle()
     }
 }

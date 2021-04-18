@@ -12,7 +12,7 @@ struct Title: ViewModifier {
         content
             .font(.resistMedium())
             .foregroundColor(.white)
-            .padding(.bottom, -15)
+            .padding(.top, 10)
     }
 }
 

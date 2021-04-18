@@ -47,40 +47,9 @@ struct ContentView: View {
                 ]), showingBottomSheet: $showingProfile)
                 
                 if self.showingProfile {
-                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght) {
-                        Rectangle()
-                            .fill(Color.white)
-                            .overlay(
-                                VStack(alignment: .center, spacing: 16) {
-                                    Text("HELLO!")
-                                        .font(.resistMedium())
-                                        .foregroundColor(.darkBlue)
-                                    
-                                    Text(
-                                        """
-                                        TODAY IS: DAY OF THE WEEK
-                                        YOU HAVE NUMBER OF LESSONS
-                                        FIRST ONE AT CLOCK
-                                        """
-                                    )
-                                        .font(.resistMedium())
-                                        .foregroundColor(.darkBlue)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.top, 5)
-                                    
-                                    Text("WISH YOU A GOOD DAY!")
-                                        .font(.resistMedium())
-                                        .foregroundColor(.darkBlue)
-                                    
-                                    Divider()
-                                        .background(Color.darkBlue)
-                                        .padding(.leading, 30)
-                                        .padding(.trailing, 30)
-                                }
-                            )
-                    }.edgesIgnoringSafeArea(.all)
+                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght).edgesIgnoringSafeArea(.all)
                 }
-                
+    
             } else {
                 VerificationView()
             }

@@ -24,3 +24,20 @@ extension TrustNumber {
         ]}
     }
 }
+
+
+//init()
+//{
+//    self.id = UUID()
+//    self.name = "NAME"
+//    self.phoneNumber = "PHONE NUMBER"
+//    self.isEnabled = false
+//}
+//
+//init(id: UUID, name: String, phoneNumber: String, isEnabled: Bool)
+//{
+//    self.id = id
+//    self.name = name
+//    self.phoneNumber = phoneNumber
+//    self.isEnabled = isEnabled
+//}

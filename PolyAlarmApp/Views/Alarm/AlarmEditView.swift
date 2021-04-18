@@ -19,11 +19,11 @@ struct AlarmEditView: View {
     @State private var showingEditSoundView: Bool = false
     @State private var saveChanges: Bool = false
     
-    @State var date: Date
-    @State var label: String
-    @State var ringtone: Ringtone
-    @State var repeatDay: RepeatDay
-    @State var isNotify: Bool
+    @State var dateEdit: Date
+    @State var labelEdit: String
+    @State var ringtoneEdit: Ringtone
+    @State var repeatDayEdit: RepeatDay
+    @State var isNotifyEdit: Bool
     
     @State private var sureText: String =
         """
@@ -47,7 +47,7 @@ struct AlarmEditView: View {
                             .simpleStyle()
                             .padding()
                         
-                        DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
+                        DatePicker("", selection: $dateEdit, displayedComponents: .hourAndMinute)
                             .labelsHidden()
                             .datePickerStyle(WheelDatePickerStyle())
                             .scaleEffect(x: 1.3, y: 1.3)
@@ -57,19 +57,19 @@ struct AlarmEditView: View {
                         Divider()
                         
                         VStack {
-                            AlarmRepeatView(repeatDay: $repeatDay)
+                            AlarmRepeatView(repeatDay: $repeatDayEdit)
                     
                             Divider()
                             
-                            SoundLabelView(ringtone: $ringtone, showingEditSoundView: $showingEditSoundView)
+                            SoundLabelView(ringtone: $ringtoneEdit, showingEditSoundView: $showingEditSoundView)
                             
                             Divider()
                     
-                            TitleLabelView(label: $label, showingEditLabelView: $showingEditLabelView)
+                            TitleLabelView(label: $labelEdit, showingEditLabelView: $showingEditLabelView)
                 
                             Divider()
                             
-                            NotifyLabelView(isNotify: $isNotify)
+                            NotifyLabelView(isNotify: $isNotifyEdit)
                             
                             Divider()
                             
@@ -105,9 +105,9 @@ struct AlarmEditView: View {
                             }
                         }
                     AlarmPopUpTextEditView(
-                        data: $label,
-                        showingEditLabelView: $showingEditLabelView,
-                        edittingData: label,
+                        data: $labelEdit,
+                        showingPopUpEditView: $showingEditLabelView,
+                        edittingData: labelEdit,
                         settingsTitle: "LABEL SETTINGS",
                         textFieldTitle: "LABEL",
                         moreThanOneLine: false
@@ -125,9 +125,9 @@ struct AlarmEditView: View {
                         }
                     }
                 SoundsView(
-                    ringtone: $ringtone,
+                    ringtone: $ringtoneEdit,
                     showingEditSoundView: $showingEditSoundView,
-                    edittingRingtone: ringtone
+                    edittingRingtone: ringtoneEdit
                 )
             }
             
@@ -168,11 +168,11 @@ struct AlarmEditView: View {
     }
     
     private func save() {
-        alarmData.alarms[alarmIndex].date = date
-        alarmData.alarms[alarmIndex].ringtone = ringtone
-        alarmData.alarms[alarmIndex].repeatDay = repeatDay
-        alarmData.alarms[alarmIndex].label = label
-        alarmData.alarms[alarmIndex].isNotify = isNotify
+        alarmData.alarms[alarmIndex].date = dateEdit
+        alarmData.alarms[alarmIndex].ringtone = ringtoneEdit
+        alarmData.alarms[alarmIndex].repeatDay = repeatDayEdit
+        alarmData.alarms[alarmIndex].label = labelEdit
+        alarmData.alarms[alarmIndex].isNotify = isNotifyEdit
         self.isPresented.wrappedValue.dismiss()
     }
 

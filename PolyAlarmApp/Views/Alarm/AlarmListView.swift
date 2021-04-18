@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AlarmListView : View {
     @EnvironmentObject var alarmData: AlarmData
-
-    @State var date = Date()
     
-    @State private var showingAddView = false
+    @State private var showingAddAlarmView = false
+    
+    @State var date = Date()
 
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "ResistSansDisplay-MediumOblique", size: 40)!]
@@ -25,6 +25,7 @@ struct AlarmListView : View {
             VStack(spacing: 50) {
                 Text("ALARMS")
                     .titleStyle()
+
                 
                 VStack {
                     Text("\(timeString(date: date))")
@@ -37,7 +38,7 @@ struct AlarmListView : View {
                         .font(.resistMedium())
                         .textCase(.uppercase)
                         .padding(.top, -35)
-                }.padding(.top, -10)
+                }.padding(.top, -35)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center, spacing: 50) {
@@ -48,7 +49,7 @@ struct AlarmListView : View {
                 }
                 
                 Button (action: {
-                    self.showingAddView.toggle()
+                    self.showingAddAlarmView.toggle()
                 }, label: {
                     RoundedRectangle(cornerRadius: 15.0)
                         .stroke(Color.white, lineWidth: 1)
@@ -63,7 +64,7 @@ struct AlarmListView : View {
                             }
                     )
                 }).padding(.bottom, 35)
-                    .sheet(isPresented: self.$showingAddView, content: {
+                    .sheet(isPresented: self.$showingAddAlarmView, content: {
                         AlarmAddView()
                             .environmentObject(self.alarmData)
                             .preferredColorScheme(.dark)

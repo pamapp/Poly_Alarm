@@ -12,7 +12,7 @@ import Firebase
 struct OTPView: View {
     @Binding var show : Bool
     @Binding var ID : String
-    @State private var loading = false
+    @State private var loadingOTP = false
     @State private var code = ""
     @State private var msg = ""
     @State private var alert = false
@@ -67,7 +67,7 @@ struct OTPView: View {
                                     }
                                 
                                 Button(action: {
-                                    self.loading.toggle()
+                                    self.loadingOTP.toggle()
                                     UIApplication.shared.endEditing()
                                     let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.ID, verificationCode: self.code)
                                     Auth.auth().signIn(with: credential) {
@@ -105,7 +105,7 @@ struct OTPView: View {
                         )
                 }.frame(width: 320, height: 320, alignment: .center)
                 
-                if self.loading {
+                if self.loadingOTP {
                     ZStack {
                         CustomBackgroundView()
                             .ignoresSafeArea(.keyboard)

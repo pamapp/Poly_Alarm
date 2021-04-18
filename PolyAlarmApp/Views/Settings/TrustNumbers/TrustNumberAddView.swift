@@ -74,7 +74,9 @@ struct TrustNumberAddView: View {
     }
     
     private func cancel() {
-        self.showingAddLabelView.toggle()
+        withAnimation {
+            self.showingAddLabelView.toggle()
+        }
     }
     
     private func createTrustNumber() {
@@ -87,6 +89,8 @@ struct TrustNumberAddView: View {
             )
             self.trustNumData.trustNumbers.append(newTrustNumber)
         }
-        self.showingAddLabelView.toggle()
+        withAnimation {
+            self.showingAddLabelView.toggle()
+        }
     }
 }
