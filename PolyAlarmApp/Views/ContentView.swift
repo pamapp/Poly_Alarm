@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var bottomSheetShown = false
     @State private var showingProfile = true
     @State private var changeMale = true
-    
+
     let hieght: CGFloat = 250
     
     var body: some View {
@@ -28,8 +28,8 @@ struct ContentView: View {
                     ),
                     TabBarPage(
                         page: AlarmListView()
-                            .preferredColorScheme(.dark)
-                            .environmentObject(AlarmData()),
+                            .environmentObject(AlarmData())
+                            .preferredColorScheme(.dark),
                         icon: "alarm",
                         tag: "Alarm"
                     ),
@@ -39,15 +39,16 @@ struct ContentView: View {
                                 isOpen: $bottomSheetShown
                             )
                             .preferredColorScheme(.dark)
-                            .environmentObject(UserData())
-                            .environmentObject(TrustNumberData()),
+                            .environmentObject(UserData()),
                         icon: "gear",
                         tag: "Settings"
                     )
                 ]), showingBottomSheet: $showingProfile)
                 
                 if self.showingProfile {
-                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght).edgesIgnoringSafeArea(.all)
+                    BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght)
+                        .environmentObject(AlarmData())
+                        .edgesIgnoringSafeArea(.all)
                 }
     
             } else {

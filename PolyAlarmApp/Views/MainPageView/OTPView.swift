@@ -13,10 +13,16 @@ struct OTPView: View {
     @Binding var show : Bool
     @Binding var ID : String
     @State private var loadingOTP = false
+    @State private var showRegistrationView = false
     @State private var code = ""
     @State private var msg = ""
     @State private var alert = false
     @State private var titles: [String] = [ Strings.enterCode, Strings.verCode ]
+    @Binding var phoneNumberDB: String
+    @State var groupNumberDB: String = ""
+    @State var nicknameDB: String = ""
+    
+    private let db = Firestore.firestore()
     
     private enum Strings {
         static let enterCode =
@@ -27,7 +33,7 @@ struct OTPView: View {
         static let verCode = "012345"
         static let verify = "VERIFY"
     }
-    
+
     var body: some View {
             ZStack {
                 CustomBackgroundView()
@@ -69,17 +75,7 @@ struct OTPView: View {
                                 Button(action: {
                                     self.loadingOTP.toggle()
                                     UIApplication.shared.endEditing()
-                                    let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.ID, verificationCode: self.code)
-                                    Auth.auth().signIn(with: credential) {
-                                        (res, err) in
-                                        if err != nil {
-                                            self.msg = (err?.localizedDescription)!
-                                            self.alert.toggle()
-                                            return
-                                        }
-                                        UserDefaults.standard.set(true, forKey: "status")
-                                        NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
-                                    }
+                                    checkUserStatus()
                                 }) {
                                     RoundedRectangle(cornerRadius: 15)
                                         .frame(width: 125, height: 45)
@@ -104,7 +100,7 @@ struct OTPView: View {
                             }
                         )
                 }.frame(width: 320, height: 320, alignment: .center)
-                
+            
                 if self.loadingOTP {
                     ZStack {
                         CustomBackgroundView()
@@ -116,9 +112,39 @@ struct OTPView: View {
                         }
                     }
                 }
+                
+                if self.showRegistrationView {
+                    RegistrationView(phoneNumberDoc: $phoneNumberDB, verifyFunc: verifyUser)
+                }
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+    }
+    
+    func checkUserStatus() {
+        let docStatus = db.collection("users").document(phoneNumberDB)
+        docStatus.getDocument { (document, error) in
+            if let document = document, !document.exists {
+                self.showRegistrationView.toggle()
+            } else {
+                self.verifyUser()
+            }
+        }
+    }
+    
+    func verifyUser() {
+        UIApplication.shared.endEditing()
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.ID, verificationCode: self.code)
+        Auth.auth().signIn(with: credential) {
+            (res, err) in
+            if err != nil {
+                self.msg = (err?.localizedDescription)!
+                self.alert.toggle()
+                return
+            }
+            UserDefaults.standard.set(true, forKey: "status")
+            NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+        }
     }
 }
 

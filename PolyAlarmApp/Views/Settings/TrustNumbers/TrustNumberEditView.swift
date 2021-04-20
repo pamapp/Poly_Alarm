@@ -10,13 +10,14 @@ import SwiftUI
 import Combine
 
 struct TrustNumberEditView: View {
-    @Environment(\.presentationMode) var isPresented
-    @EnvironmentObject var trustNumData: TrustNumberData
-    
-    let trustNumber: TrustNumber
+    @ObservedObject var trustNumber: TrustNumber
     
     @State var name: String
     @State var phoneNumber: String
+    
+    var deleteAction: (TrustNumber) -> Void
+    
+    @Binding var showingEditTrustNumView: Bool
     
     @State var popUpEditTitle: String =
     """
@@ -24,12 +25,8 @@ struct TrustNumberEditView: View {
     SETTINGS
     """
     
-    var trustNumberIndex: Int {
-        trustNumData.trustNumbers.firstIndex(where: { $0.id == trustNumber.id})!
-    }
-    
     var body: some View {
-        VStack(spacing: UIScreen.main.bounds.width / 9) {
+        VStack(spacing: UIScreen.main.bounds.width / 12) {
                 
             Text(popUpEditTitle)
                 .simpleStyle()
@@ -76,20 +73,20 @@ struct TrustNumberEditView: View {
                 
             }
             
-        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2)
+        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2.3)
 
     }
-    
     private func delete() {
-        trustNumData.trustNumbers.remove(at: trustNumberIndex)
-        self.isPresented.wrappedValue.dismiss()
+        deleteAction(trustNumber)
+        self.showingEditTrustNumView.toggle()
     }
     
     private func done() {
         if !name.isEmpty && !phoneNumber.isEmpty {
-            trustNumData.trustNumbers[trustNumberIndex].name = name
-            trustNumData.trustNumbers[trustNumberIndex].phoneNumber = phoneNumber
+            trustNumber.name = name
+            trustNumber.phoneNumber = phoneNumber
         }
-        self.isPresented.wrappedValue.dismiss()
+
+        self.showingEditTrustNumView.toggle()
     }
 }

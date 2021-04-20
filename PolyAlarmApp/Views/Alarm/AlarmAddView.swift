@@ -126,7 +126,7 @@ struct AlarmAddView: View {
     
     private func createAlarm() {
         let newAlarm = Alarm (
-            id: UUID(),
+            id: UUID().uuidString,
             date: date,
             label: label,
             ringtone: ringtone,
@@ -134,8 +134,7 @@ struct AlarmAddView: View {
             isEnabled: false,
             isNotify: true
         )
-
-        self.alarmData.alarms.append(newAlarm)
+        alarmData.add(newAlarm)
         self.isPresented.wrappedValue.dismiss()
     }
     

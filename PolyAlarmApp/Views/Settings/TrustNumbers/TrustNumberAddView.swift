@@ -14,7 +14,6 @@ struct TrustNumberAddView: View {
     
     @State var name: String = ""
     @State var number: String = ""
-    @State var isEnabled: Bool = false
     @State var popUpAddTitle: String =
         """
         TRUST NUMBERS
@@ -22,7 +21,7 @@ struct TrustNumberAddView: View {
         """
     
     var body: some View {
-        VStack(spacing: UIScreen.main.bounds.width / 9) {
+        VStack(spacing: UIScreen.main.bounds.width / 12) {
                 
             Text(popUpAddTitle)
                 .simpleStyle()
@@ -62,35 +61,29 @@ struct TrustNumberAddView: View {
                 })
                 
                 Button (action: {
-                    self.createTrustNumber()
+                    createTrustNumber()
                 }, label: {
                     DefaultButtonStyle(buttonTitle: "SAVE", buttonWidth: UIScreen.main.bounds.width / 3)
                 })
                 
             }
             
-        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2)
+        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2.3)
 
     }
     
     private func cancel() {
-        withAnimation {
-            self.showingAddLabelView.toggle()
-        }
+        self.showingAddLabelView.toggle()
     }
+
     
-    private func createTrustNumber() {
+    func createTrustNumber() {
         if !name.isEmpty && !number.isEmpty {
-            let newTrustNumber = TrustNumber(
-                id: UUID(),
-                name: name,
-                phoneNumber: number,
-                isEnabled: true
-            )
-            self.trustNumData.trustNumbers.append(newTrustNumber)
+            let trustNumber = TrustNumber(name: name,
+                                          phoneNumber: number,
+                                          isEnabled: false)
+            trustNumData.add(trustNumber)
         }
-        withAnimation {
-            self.showingAddLabelView.toggle()
-        }
+        self.showingAddLabelView.toggle()
     }
 }

@@ -12,6 +12,9 @@ import UserNotifications
 @main
 struct alarmApp: App {
     @UIApplicationDelegateAdaptor(Delegate.self) var delegate
+//    let trustNumberData = TrustNumberData()
+//    let alarmData = AlarmData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -25,6 +28,8 @@ class Delegate: NSObject, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
             success, error in
         }
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -37,7 +42,7 @@ extension Delegate: UNUserNotificationCenterDelegate, ObservableObject {
                                 withCompletionHandler: @escaping (UNNotificationPresentationOptions)->()) {
         withCompletionHandler([.banner, .sound, .badge])
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive: UNNotificationResponse,
                                 withCompletionHandler: @escaping ()->()) {

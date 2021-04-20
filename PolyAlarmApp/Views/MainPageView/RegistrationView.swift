@@ -7,14 +7,20 @@
 
 import SwiftUI
 import Combine
+import Firebase
 
 struct RegistrationView: View {
-    @State private var loadingSignUp = false
+    @State private var loadingRegistration = false
     @State private var show = false
     @State private var alert: Bool = false
-    @State private var nickNameField: String = ""
-    @State private var groupNumberField: String = ""
-        
+    @State var nickNameField: String = ""
+    @State var groupNumberField: String = ""
+    @Binding var phoneNumberDoc: String
+    
+    private let db = Firestore.firestore()
+    
+    var verifyFunc: () -> Void
+    
     private enum Strings {
         static let registration = "REGISTRATION"
         static let nickName = "NICKNAME"
@@ -53,7 +59,6 @@ struct RegistrationView: View {
                                     text: $nickNameField
                                 )
                                 .loginDataStyle()
-                                .keyboardType(.numberPad)
                                 
                                 CustomTextField(
                                     curWidth: 265,
@@ -65,29 +70,12 @@ struct RegistrationView: View {
                                     text: $groupNumberField
                                 )
                                 .loginDataStyle()
-                                .keyboardType(.numberPad)
-                                .onReceive(Just(groupNumberField)) { newValue in
-                                    let filtered = newValue.filter { "0123456789".contains($0) }
-                                    if filtered != newValue {
-                                        self.groupNumberField = filtered
-                                    }
-                                }
                                 
 
                                 Button(action: {
-                                    self.loadingSignUp.toggle()
-//                                    UIApplication.shared.endEditing()
-//                                    PhoneAuthProvider.provider().verifyPhoneNumber("+" + self.codeField + self.phoneNumderField, uiDelegate: nil) {
-//                                        (ID, err) in
-//                                        if err != nil {
-//                                            self.msg = (err?.localizedDescription)!
-//                                            self.alert.toggle()
-//                                            return
-//                                        }
-//                                        self.ID = ID!
-//                                        self.show.toggle()
-//                                        self.loadingVerify.toggle()
-//                                    }
+                                    self.loadingRegistration.toggle()
+                                    saveUser(groupnumber: groupNumberField, nickname: nickNameField)
+                                    verifyFunc()
                                 }) {
                                     RoundedRectangle(cornerRadius: 15)
                                         .frame(width: 125, height: 45)
@@ -103,25 +91,27 @@ struct RegistrationView: View {
                         )
                 }.frame(width: 320, height: 350, alignment: .center)
                 
-//                if self.loadingSignUp {
-//                    ZStack {
-//                        CustomBackgroundView()
-//                            .ignoresSafeArea(.keyboard)
-//                        VStack {
-//                            Text("Loading...")
-//                                .font(.resistMedium(16))
-//                            ProgressView().progressViewStyle(CircularProgressViewStyle())
-//                        }
-//                    }
-//                }
+                if self.loadingRegistration {
+                    ZStack {
+                        CustomBackgroundView()
+                            .ignoresSafeArea(.keyboard)
+                        VStack {
+                            Text("Loading...")
+                                .font(.resistMedium(16))
+                            ProgressView().progressViewStyle(CircularProgressViewStyle())
+                        }
+                    }
+                }
             }
             .navigationBarHidden(true)
         }
     }
-}
-
-struct RegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationView()
+    
+    private func saveUser(groupnumber: String, nickname: String) {
+        let docRef = db.collection("users").document(phoneNumberDoc)
+        docRef.setData([
+            "groupNumber": groupnumber,
+            "nickname": nickname
+        ])
     }
 }

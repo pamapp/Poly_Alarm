@@ -222,7 +222,6 @@
 		91AC95D2261B9642000329DC /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				9148096B2620F2550077700B /* BottomSheetView.swift */,
 				914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */,
 				91AC95E4261B96DE000329DC /* CustomBackgroundBlur.swift */,
 				91AC9615261B9908000329DC /* CustomBackgroundView.swift */,
@@ -339,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				91AC9611261B98E1000329DC /* ProfileView.swift */,
+				9148096B2620F2550077700B /* BottomSheetView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -652,7 +652,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -675,7 +675,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pamapp.PolyAlarmApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct AlarmView: View {
-
-    @StateObject var delegate = Delegate()
     
     @EnvironmentObject var alarmData: AlarmData
     
@@ -27,19 +25,12 @@ struct AlarmView: View {
     var body: some View {
         ZStack {
             let toggle = Binding<Bool> (
-                get: { self.alarm.isEnabled },
+                get: { alarm.isEnabled },
                 set: { newValue in
-                    self.alarmData.alarms[alarmIndex].isEnabled = newValue
-//                    if self.alarm.isEnabled {
-                        createNotification(
-                            alarm: alarm,
-                            weekDays: alarm.repeatDay.repeatDaysIndexes
-                        )
-                        UNUserNotificationCenter.current().delegate = delegate
-//                    }
+                    alarmData.alarms[alarmIndex].isEnabled = newValue
                 }
             )
-            
+
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 110, alignment: .center)
                 .foregroundColor(alarm.isEnabled ? .lightGray : .darkGray)
@@ -78,7 +69,9 @@ struct AlarmView: View {
                                 labelEdit: alarmData.alarms[alarmIndex].label,
                                 ringtoneEdit: alarmData.alarms[alarmIndex].ringtone,
                                 repeatDayEdit: alarmData.alarms[alarmIndex].repeatDay,
-                                isNotifyEdit: alarmData.alarms[alarmIndex].isNotify
+                                isEnabledEdit: alarmData.alarms[alarmIndex].isEnabled,
+                                isNotifyEdit: alarmData.alarms[alarmIndex].isNotify,
+                                deleteAction: alarmData.delete
                             )
                             .environmentObject(self.alarmData)
                             .preferredColorScheme(.dark)

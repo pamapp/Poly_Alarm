@@ -8,26 +8,14 @@
 import SwiftUI
 
 struct TrustNumberView: View {
-    
     @EnvironmentObject var trustNumData: TrustNumberData
     
-    @Binding var editView: Bool
+    @ObservedObject var trustNumber: TrustNumber
     
-    let trustNumber: TrustNumber
-    
-    var trustNumberIndex: Int {
-        trustNumData.trustNumbers.firstIndex(where: { $0.id == trustNumber.id})!
-    }
+    @Binding var showingEditTrustNumView: Bool
     
     var body: some View {
         ZStack {
-            let toggleTrust = Binding<Bool> (
-                get: { self.trustNumber.isEnabled },
-                set: { newValue in
-                    self.trustNumData.trustNumbers[trustNumberIndex].isEnabled = newValue
-                }
-            )
-            
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 110, alignment: .center)
                 .foregroundColor(trustNumber.isEnabled ? .lightGray : .darkGray)
@@ -36,8 +24,9 @@ struct TrustNumberView: View {
                         Text("\(self.trustNumber.name)")
                             .font(.resistMedium(22))
                             .foregroundColor(.darkBlue)
+                            .lineLimit(5)
                 
-                        Toggle(isOn: toggleTrust) {}
+                        Toggle(isOn: $trustNumber.isEnabled) {}
                             .toggleStyle(SwitchToggleStyle(tint: .darkBlue))
                             .labelsHidden()
                             .padding(.leading, -11)
@@ -50,8 +39,7 @@ struct TrustNumberView: View {
                             )
                                                     
                         Button {
-                            self.editView.toggle()
-                            print("set")
+                            self.showingEditTrustNumView.toggle()
                         } label: {
                             Image(systemName: "gear")
                                 .font(.system(size: 40))
@@ -60,13 +48,14 @@ struct TrustNumberView: View {
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.darkBlue, lineWidth: 2)
                                 )
-                        }.sheet(isPresented: self.$editView, content: {
+                        }.sheet(isPresented: self.$showingEditTrustNumView, content: {
                             TrustNumberEditView(
                                 trustNumber: trustNumber,
-                                name: trustNumData.trustNumbers[trustNumberIndex].name,
-                                phoneNumber: trustNumData.trustNumbers[trustNumberIndex].phoneNumber
+                                name: trustNumber.name,
+                                phoneNumber: trustNumber.phoneNumber,
+                                deleteAction: trustNumData.delete,
+                                showingEditTrustNumView: $showingEditTrustNumView
                             )
-                            .environmentObject(self.trustNumData)
                             .preferredColorScheme(.dark)
                         })
                     }

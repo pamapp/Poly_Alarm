@@ -13,10 +13,6 @@ struct AlarmListView : View {
     @State private var showingAddAlarmView = false
     
     @State var date = Date()
-
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "ResistSansDisplay-MediumOblique", size: 40)!]
-    }
     
     var body: some View {
         ZStack {

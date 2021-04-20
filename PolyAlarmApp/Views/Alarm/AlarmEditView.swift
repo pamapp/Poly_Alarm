@@ -23,7 +23,10 @@ struct AlarmEditView: View {
     @State var labelEdit: String
     @State var ringtoneEdit: Ringtone
     @State var repeatDayEdit: RepeatDay
+    @State var isEnabledEdit: Bool
     @State var isNotifyEdit: Bool
+    
+    var deleteAction: (Alarm) -> Void
     
     @State private var sureText: String =
         """
@@ -142,25 +145,25 @@ struct AlarmEditView: View {
                             }
                         }
                     
-                        VStack(spacing: 30) {
-                            Text(sureText)
-                                .simpleStyle()
-                                .multilineTextAlignment(.center)
+                    VStack(spacing: 30) {
+                        Text(sureText)
+                            .simpleStyle()
+                            .multilineTextAlignment(.center)
+                        
+                        HStack(alignment: .center, spacing: UIScreen.main.bounds.width / 10) {
+                            Button (action: {
+                                self.isPresented.wrappedValue.dismiss()
+                            }, label: {
+                                DefaultButtonStyle(buttonTitle: "CANCEL", buttonWidth: UIScreen.main.bounds.width / 3)
+                            })
                             
-                            HStack(alignment: .center, spacing: UIScreen.main.bounds.width / 10) {
-                                Button (action: {
-                                    self.isPresented.wrappedValue.dismiss()
-                                }, label: {
-                                    DefaultButtonStyle(buttonTitle: "CANCEL", buttonWidth: UIScreen.main.bounds.width / 3)
-                                })
-                                
-                                Button (action: {
-                                    save()
-                                }, label: {
-                                    DefaultButtonStyle(buttonTitle: "SAVE", buttonWidth: UIScreen.main.bounds.width / 3)
-                                })
-                            }
-                        }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3.4)
+                            Button (action: {
+                                save()
+                            }, label: {
+                                DefaultButtonStyle(buttonTitle: "SAVE", buttonWidth: UIScreen.main.bounds.width / 3)
+                            })
+                        }
+                    }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 3.4)
                 }
             }
             
@@ -172,13 +175,14 @@ struct AlarmEditView: View {
         alarmData.alarms[alarmIndex].ringtone = ringtoneEdit
         alarmData.alarms[alarmIndex].repeatDay = repeatDayEdit
         alarmData.alarms[alarmIndex].label = labelEdit
+        alarmData.alarms[alarmIndex].isEnabled = isEnabledEdit
         alarmData.alarms[alarmIndex].isNotify = isNotifyEdit
         self.isPresented.wrappedValue.dismiss()
     }
 
     
     private func delete() {
-        alarmData.alarms.remove(at: alarmIndex)
+        deleteAction(alarm)
         self.isPresented.wrappedValue.dismiss()
     }
 }

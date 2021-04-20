@@ -17,4 +17,15 @@ final class TrustNumberData: ObservableObject {
             didChange.send(self)
         }
     }
+    
+    // MARK: - Managing TrustNumbers
+    func add(_ trustNumber: TrustNumber) {
+        trustNumbers.append(trustNumber)
+    }
+
+    func delete(_ trustNumber: TrustNumber) {
+        if let index = trustNumbers.firstIndex(where: { $0.id == trustNumber.id }) {
+            trustNumbers.remove(at: index)
+        }
+    }
 }

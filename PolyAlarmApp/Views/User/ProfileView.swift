@@ -29,14 +29,14 @@ struct ProfileView: View {
                 Spacer()
             }
             
-            Image(changeMale ? male : female)
-                .resizable()
-                .frame(width: 284.0, height: 284.0)
-                .padding(.top, 40)
-                .offset(y: moveMemoji ? -142 : 0).animation(.easeInOut(duration: 1.0))
-                .onTapGesture {
-                    self.changeMale.toggle()
-                }
+//            Image(changeMale ? male : female)
+//                .resizable()
+//                .frame(width: 284.0, height: 284.0)
+//                .padding(.top, 40)
+//                .offset(y: moveMemoji ? -142 : 0).animation(.easeInOut(duration: 1.0))
+//                .onTapGesture {
+//                    self.changeMale.toggle()
+//                }
         }
     }
 }

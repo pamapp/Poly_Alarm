@@ -11,7 +11,7 @@ import Firebase
 
 struct VerificationView: View {
     @State private var loadingVerify = false
-    @State private var phoneNumderField: String = ""
+    @State var phoneNumderField: String = ""
     @State private var codeField: String = "7"
     @State private var alert: Bool = false
     @State private var msg = ""
@@ -75,7 +75,7 @@ struct VerificationView: View {
                                         }
                                 }
                                 
-                                NavigationLink(destination: OTPView(show: $show, ID: $ID), isActive: $show) {
+                                NavigationLink(destination: OTPView(show: $show, ID: $ID, phoneNumberDB: $phoneNumderField), isActive: $show) {
                                     Button(action: {
                                         self.loadingVerify.toggle()
                                         UIApplication.shared.endEditing()

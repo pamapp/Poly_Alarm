@@ -15,16 +15,28 @@ fileprivate enum Constants {
 }
 
 struct BottomSheetView: View {
+    @EnvironmentObject var alarmData: AlarmData
+    
     @Binding var isOpen: Bool
+    
     @State var dateWeek = Date()
+    
+    @State var changeMale: Bool = false
     
     let maxHeight: CGFloat
     let minHeight: CGFloat
 
+    let male: String = "male"
+    let female: String = "female"
+    
     @GestureState private var translation: CGFloat = 0
 
     private var offset: CGFloat {
         isOpen ? 0 : maxHeight - minHeight
+    }
+    
+    private var offsetMemoji: CGFloat {
+        isOpen ? 85 : maxHeight - minHeight
     }
 
     private var indicator: some View {
@@ -47,6 +59,17 @@ struct BottomSheetView: View {
         return time
     }
     
+    var firstTimeFormat: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }
+    
+    func firstTimeString(date: Date) -> String {
+         let time = firstTimeFormat.string(from: date)
+         return time
+    }
+    
     var updateWeekDay: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in  self.dateWeek = Date() })
     }
@@ -58,6 +81,17 @@ struct BottomSheetView: View {
     }
 
     var body: some View {
+        VStack(alignment: .center) {
+            Image(changeMale ? male : female)
+                .resizable()
+                .frame(width: 284.0, height: 284.0, alignment: .center)
+                .offset(y: max(self.offsetMemoji + self.translation, 85))
+                .onTapGesture {
+                    print(self.offsetMemoji + self.translation)
+                    self.changeMale.toggle()
+                }
+        }.padding(.bottom, UIScreen.main.bounds.height / 1.85)
+        
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 self.indicator
@@ -74,8 +108,8 @@ struct BottomSheetView: View {
                             Text(
                                 """
                                 TODAY IS: \(weekDayString(date: dateWeek).uppercased())
-                                YOU HAVE NUMBER OF LESSONS
-                                FIRST ONE AT CLOCK
+                                YOU HAVE \(alarmData.numOfAlarms())
+                                \(alarmData.firstAlarmTime())
                                 """
                             )
                                 .onAppear(perform: { let _ = self.updateWeekDay })
@@ -95,7 +129,6 @@ struct BottomSheetView: View {
                         }
                     )
             }
-//            .edgesIgnoringSafeArea(.all)
             .frame(width: geometry.size.width, height: self.maxHeight)
             .background(Color.white)
             .cornerRadius(15, corners: [.topLeft, .topRight])

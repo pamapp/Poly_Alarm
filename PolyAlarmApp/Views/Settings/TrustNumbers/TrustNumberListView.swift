@@ -11,9 +11,9 @@ struct TrustNumberListView : View {
     
     @EnvironmentObject var trustNumData: TrustNumberData
 
-    @State private var showingAddNumberView = false
+    @State var showingAddNumberView = false
     
-    @State private var showingEditNumberView = false
+    @State var showingEditNumberView: Bool = false
 
     var body: some View {
         ZStack {
@@ -27,11 +27,11 @@ struct TrustNumberListView : View {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center, spacing: 40) {
-                        ForEach(self.trustNumData.trustNumbers.indexed(), id: \.1.id) { index, _ in
+                        ForEach(trustNumData.trustNumbers, id: \.id) { trustNumber in
                             TrustNumberView(
-                                editView: $showingEditNumberView,
-                                trustNumber: self.trustNumData.trustNumbers[index]
-                            )
+                                trustNumber: trustNumber,
+                                showingEditTrustNumView: $showingEditNumberView
+                            ).environmentObject(trustNumData)
                         }
                     }
                 }.padding(.top, 30)
@@ -65,24 +65,9 @@ struct TrustNumberListView : View {
                         }
                     }
                     TrustNumberAddView(showingAddLabelView: $showingAddNumberView)
-                        .environmentObject(self.trustNumData)
                         .preferredColorScheme(.dark)
+                        .environmentObject(trustNumData)
 
-                }
-            }
-            
-            if self.showingEditNumberView {
-                ZStack{
-                    CustomBackgroundBlur(effect: UIBlurEffect(style: .regular))
-                    .opacity(0.9)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture {
-                        withAnimation{
-                            self.showingEditNumberView.toggle()
-                        }
-                    }
-
-                    
                 }
             }
         }
