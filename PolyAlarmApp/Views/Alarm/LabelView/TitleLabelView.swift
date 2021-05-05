@@ -10,6 +10,7 @@ import SwiftUI
 struct TitleLabelView: View {
     @Binding var label: String
     @Binding var showingEditLabelView: Bool
+    
     var body: some View {
         ZStack(alignment: .center) {
             HStack {

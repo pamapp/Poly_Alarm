@@ -31,7 +31,7 @@ struct TrustNumberListView : View {
                             TrustNumberView(
                                 trustNumber: trustNumber,
                                 showingEditTrustNumView: $showingEditNumberView
-                            ).environmentObject(trustNumData)
+                            ).environmentObject(self.trustNumData)
                         }
                     }
                 }.padding(.top, 30)
@@ -66,7 +66,7 @@ struct TrustNumberListView : View {
                     }
                     TrustNumberAddView(showingAddLabelView: $showingAddNumberView)
                         .preferredColorScheme(.dark)
-                        .environmentObject(trustNumData)
+                        .environmentObject(self.trustNumData)
 
                 }
             }

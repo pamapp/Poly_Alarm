@@ -20,6 +20,8 @@
 		9148095F2620F0D40077700B /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148095D2620F0D30077700B /* SettingsButtonView.swift */; };
 		914809692620F1F20077700B /* SoundLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914809682620F1F20077700B /* SoundLabelView.swift */; };
 		9148096C2620F2550077700B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148096B2620F2550077700B /* BottomSheetView.swift */; };
+		91554DA4262EE7E5003D111B /* PolyAlarmAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91554DA3262EE7E5003D111B /* PolyAlarmAppTests.swift */; };
+		91554DB4262EECBA003D111B /* PolyAlarmAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91554DB3262EECBA003D111B /* PolyAlarmAppUITests.swift */; };
 		916296C6262A1ACC00D0AE47 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916296C5262A1ACC00D0AE47 /* RegistrationView.swift */; };
 		91AC95C3261B9545000329DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C2261B9545000329DC /* Assets.xcassets */; };
 		91AC95C6261B9545000329DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AC95C5261B9545000329DC /* Preview Assets.xcassets */; };
@@ -69,6 +71,23 @@
 		E5CD0B74261B9D2900A9EE92 /* UserDefaultAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD0B6E261B9D2900A9EE92 /* UserDefaultAlarm.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		91554DA6262EE7E5003D111B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91AC95B3261B953E000329DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91AC95BA261B953E000329DC;
+			remoteInfo = PolyAlarmApp;
+		};
+		91554DB6262EECBA003D111B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91AC95B3261B953E000329DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91AC95BA261B953E000329DC;
+			remoteInfo = PolyAlarmApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9148093B2620E2FA0077700B /* Application+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Extensions.swift"; sourceTree = "<group>"; };
 		9148093F2620ECBB0077700B /* TabViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewCustom.swift; sourceTree = "<group>"; };
@@ -83,6 +102,12 @@
 		9148095D2620F0D30077700B /* SettingsButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		914809682620F1F20077700B /* SoundLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLabelView.swift; sourceTree = "<group>"; };
 		9148096B2620F2550077700B /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		91554DA1262EE7E4003D111B /* PolyAlarmAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyAlarmAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91554DA3262EE7E5003D111B /* PolyAlarmAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyAlarmAppTests.swift; sourceTree = "<group>"; };
+		91554DA5262EE7E5003D111B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91554DB1262EECBA003D111B /* PolyAlarmAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyAlarmAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91554DB3262EECBA003D111B /* PolyAlarmAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyAlarmAppUITests.swift; sourceTree = "<group>"; };
+		91554DB5262EECBA003D111B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916296C5262A1ACC00D0AE47 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		91AC95BB261B953E000329DC /* PolyAlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyAlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AC95C2261B9545000329DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +156,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		91554D9E262EE7E4003D111B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91554DAE262EECBA003D111B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91AC95B8261B953E000329DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +214,24 @@
 			path = TrustNumbers;
 			sourceTree = "<group>";
 		};
+		91554DA2262EE7E4003D111B /* PolyAlarmAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				91554DA3262EE7E5003D111B /* PolyAlarmAppTests.swift */,
+				91554DA5262EE7E5003D111B /* Info.plist */,
+			);
+			path = PolyAlarmAppTests;
+			sourceTree = "<group>";
+		};
+		91554DB2262EECBA003D111B /* PolyAlarmAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				91554DB3262EECBA003D111B /* PolyAlarmAppUITests.swift */,
+				91554DB5262EECBA003D111B /* Info.plist */,
+			);
+			path = PolyAlarmAppUITests;
+			sourceTree = "<group>";
+		};
 		91AC95B2261B953E000329DC = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +245,8 @@
 				91AC95F3261B9781000329DC /* Models */,
 				91AC95E7261B96F3000329DC /* Extensions */,
 				91AC9609261B983D000329DC /* Views */,
+				91554DA2262EE7E4003D111B /* PolyAlarmAppTests */,
+				91554DB2262EECBA003D111B /* PolyAlarmAppUITests */,
 				91AC95BC261B953E000329DC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -196,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				91AC95BB261B953E000329DC /* PolyAlarmApp.app */,
+				91554DA1262EE7E4003D111B /* PolyAlarmAppTests.xctest */,
+				91554DB1262EECBA003D111B /* PolyAlarmAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,6 +441,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		91554DA0262EE7E4003D111B /* PolyAlarmAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91554DAA262EE7E5003D111B /* Build configuration list for PBXNativeTarget "PolyAlarmAppTests" */;
+			buildPhases = (
+				91554D9D262EE7E4003D111B /* Sources */,
+				91554D9E262EE7E4003D111B /* Frameworks */,
+				91554D9F262EE7E4003D111B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91554DA7262EE7E5003D111B /* PBXTargetDependency */,
+			);
+			name = PolyAlarmAppTests;
+			productName = PolyAlarmAppTests;
+			productReference = 91554DA1262EE7E4003D111B /* PolyAlarmAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		91554DB0262EECBA003D111B /* PolyAlarmAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91554DB8262EECBA003D111B /* Build configuration list for PBXNativeTarget "PolyAlarmAppUITests" */;
+			buildPhases = (
+				91554DAD262EECBA003D111B /* Sources */,
+				91554DAE262EECBA003D111B /* Frameworks */,
+				91554DAF262EECBA003D111B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91554DB7262EECBA003D111B /* PBXTargetDependency */,
+			);
+			name = PolyAlarmAppUITests;
+			productName = PolyAlarmAppUITests;
+			productReference = 91554DB1262EECBA003D111B /* PolyAlarmAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		91AC95BA261B953E000329DC /* PolyAlarmApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91AC95CA261B9545000329DC /* Build configuration list for PBXNativeTarget "PolyAlarmApp" */;
@@ -412,6 +509,14 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					91554DA0262EE7E4003D111B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 91AC95BA261B953E000329DC;
+					};
+					91554DB0262EECBA003D111B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 91AC95BA261B953E000329DC;
+					};
 					91AC95BA261B953E000329DC = {
 						CreatedOnToolsVersion = 12.3;
 						LastSwiftMigration = 1230;
@@ -435,11 +540,27 @@
 			projectRoot = "";
 			targets = (
 				91AC95BA261B953E000329DC /* PolyAlarmApp */,
+				91554DA0262EE7E4003D111B /* PolyAlarmAppTests */,
+				91554DB0262EECBA003D111B /* PolyAlarmAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		91554D9F262EE7E4003D111B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91554DAF262EECBA003D111B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91AC95B9261B953E000329DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,6 +581,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		91554D9D262EE7E4003D111B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91554DA4262EE7E5003D111B /* PolyAlarmAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91554DAD262EECBA003D111B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91554DB4262EECBA003D111B /* PolyAlarmAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91AC95B7261B953E000329DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,7 +652,98 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		91554DA7262EE7E5003D111B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91AC95BA261B953E000329DC /* PolyAlarmApp */;
+			targetProxy = 91554DA6262EE7E5003D111B /* PBXContainerItemProxy */;
+		};
+		91554DB7262EECBA003D111B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91AC95BA261B953E000329DC /* PolyAlarmApp */;
+			targetProxy = 91554DB6262EECBA003D111B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		91554DA8262EE7E5003D111B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
+				INFOPLIST_FILE = PolyAlarmAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pamapp.PolyAlarmAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolyAlarmApp.app/PolyAlarmApp";
+			};
+			name = Debug;
+		};
+		91554DA9262EE7E5003D111B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
+				INFOPLIST_FILE = PolyAlarmAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pamapp.PolyAlarmAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolyAlarmApp.app/PolyAlarmApp";
+			};
+			name = Release;
+		};
+		91554DB9262EECBA003D111B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
+				INFOPLIST_FILE = PolyAlarmAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pamapp.PolyAlarmAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PolyAlarmApp;
+			};
+			name = Debug;
+		};
+		91554DBA262EECBA003D111B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
+				INFOPLIST_FILE = PolyAlarmAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pamapp.PolyAlarmAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PolyAlarmApp;
+			};
+			name = Release;
+		};
 		91AC95C8261B9545000329DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -567,6 +795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/Firebase/Core/Sources";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -622,6 +851,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/Firebase/Core/Sources";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -640,7 +870,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PolyAlarmApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Q2Q2F2FY6;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PolyAlarmApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -664,7 +894,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PolyAlarmApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Q2Q2F2FY6;
+				DEVELOPMENT_TEAM = 93HP7KN2HJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PolyAlarmApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -682,6 +912,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		91554DAA262EE7E5003D111B /* Build configuration list for PBXNativeTarget "PolyAlarmAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91554DA8262EE7E5003D111B /* Debug */,
+				91554DA9262EE7E5003D111B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91554DB8262EECBA003D111B /* Build configuration list for PBXNativeTarget "PolyAlarmAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91554DB9262EECBA003D111B /* Debug */,
+				91554DBA262EECBA003D111B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91AC95B6261B953E000329DC /* Build configuration list for PBXProject "PolyAlarmApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

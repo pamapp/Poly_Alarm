@@ -42,4 +42,16 @@ struct RepeatDay: OptionSet, Codable, Hashable {
         if contains(.sat) {  days += [7] }
         return days
     }
+    
+    var numOfRepeatDays: Int {
+        var numOfDays: Int = 0
+        if contains(.sun) {  numOfDays += 1 }
+        if contains(.mon) {  numOfDays += 1 }
+        if contains(.tue) {  numOfDays += 1 }
+        if contains(.wed) {  numOfDays += 1 }
+        if contains(.thu) {  numOfDays += 1 }
+        if contains(.fri) {  numOfDays += 1 }
+        if contains(.sat) {  numOfDays += 1 }
+        return numOfDays
+    }
 }

@@ -87,7 +87,6 @@ struct BottomSheetView: View {
                 .frame(width: 284.0, height: 284.0, alignment: .center)
                 .offset(y: max(self.offsetMemoji + self.translation, 85))
                 .onTapGesture {
-                    print(self.offsetMemoji + self.translation)
                     self.changeMale.toggle()
                 }
         }.padding(.bottom, UIScreen.main.bounds.height / 1.85)

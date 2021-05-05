@@ -39,7 +39,8 @@ struct ContentView: View {
                                 isOpen: $bottomSheetShown
                             )
                             .preferredColorScheme(.dark)
-                            .environmentObject(UserData()),
+                            .environmentObject(UserData())
+                            .environmentObject(TrustNumberData()),
                         icon: "gear",
                         tag: "Settings"
                     )

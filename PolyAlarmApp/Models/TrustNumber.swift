@@ -7,19 +7,22 @@
 
 import SwiftUI
 
-class TrustNumber: Codable, Identifiable, ObservableObject {
+class TrustNumber: Codable, Identifiable, Equatable, ObservableObject {
+    
+    static func == (lhs: TrustNumber, rhs: TrustNumber) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id = UUID().uuidString
     @Published var name: String
     @Published var phoneNumber: String
-    @Published var isEnabled: Bool {
-        didSet {
-        }
-    }
+    @Published var isEnabled: Bool
+    
     
     internal init(id: String = UUID().uuidString,
                   name: String = "",
                   phoneNumber: String = "",
-                  isEnabled: Bool = false) {
+                  isEnabled: Bool = true) {
         self.id = id
         self.name = name
         self.phoneNumber = phoneNumber

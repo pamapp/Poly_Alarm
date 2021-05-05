@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AlarmListView : View {
+    
     @EnvironmentObject var alarmData: AlarmData
     
     @State private var showingAddAlarmView = false
@@ -22,7 +23,6 @@ struct AlarmListView : View {
                 Text("ALARMS")
                     .titleStyle()
 
-                
                 VStack {
                     Text("\(timeString(date: date))")
                         .onAppear(perform: { let _ = self.updateTimer })

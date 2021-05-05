@@ -86,9 +86,7 @@ struct AlarmAddView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
-                                self.showingEditLabelView.toggle()
-                            }
+                            self.showingEditLabelView.toggle()
                         }
                     AlarmPopUpTextEditView(
                         data: $label,
@@ -106,9 +104,7 @@ struct AlarmAddView: View {
                     .opacity(0.9)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
-                        withAnimation{
-                            self.showingEditSoundView.toggle()
-                        }
+                        self.showingEditSoundView.toggle()
                     }
                 SoundsView(
                     ringtone: $ringtone,

@@ -77,8 +77,8 @@ struct VerificationView: View {
                                 
                                 NavigationLink(destination: OTPView(show: $show, ID: $ID, phoneNumberDB: $phoneNumderField), isActive: $show) {
                                     Button(action: {
-                                        self.loadingVerify.toggle()
                                         UIApplication.shared.endEditing()
+                                        self.loadingVerify.toggle()
                                         PhoneAuthProvider.provider().verifyPhoneNumber("+" + self.codeField + self.phoneNumderField, uiDelegate: nil) {
                                             (ID, err) in
                                             if err != nil {

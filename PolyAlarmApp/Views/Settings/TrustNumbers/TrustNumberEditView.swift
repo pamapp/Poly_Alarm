@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 struct TrustNumberEditView: View {
+    
     @ObservedObject var trustNumber: TrustNumber
     
     @State var name: String

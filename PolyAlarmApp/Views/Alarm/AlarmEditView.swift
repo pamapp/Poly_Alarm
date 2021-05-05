@@ -177,6 +177,7 @@ struct AlarmEditView: View {
         alarmData.alarms[alarmIndex].label = labelEdit
         alarmData.alarms[alarmIndex].isEnabled = isEnabledEdit
         alarmData.alarms[alarmIndex].isNotify = isNotifyEdit
+        
         self.isPresented.wrappedValue.dismiss()
     }
 

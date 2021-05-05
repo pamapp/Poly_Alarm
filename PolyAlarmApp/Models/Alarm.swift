@@ -17,11 +17,21 @@ struct Alarm: Codable, Identifiable, Hashable {
     var isEnabled: Bool {
         didSet {
             if isEnabled {
-                for _ in 1...5 {
-                    createNotification(alarm: self)
+                if repeatDay.numOfRepeatDays != 0 {
+                    for day in 0...repeatDay.numOfRepeatDays - 1 {
+                        NotificationMethods().createNotification(alarm: self, day: day)
+                    }
+                } else {
+                    NotificationMethods().createNotification(alarm: self)
                 }
             } else {
-                removeNotification(alarm: self)
+                if repeatDay.numOfRepeatDays != 0 {
+                    for day in 0...repeatDay.numOfRepeatDays - 1 {
+                        NotificationMethods().removeNotification(alarm: self, day: day)
+                    }
+                } else {
+                    NotificationMethods().removeNotification(alarm: self)
+                }
             }
         }
     }

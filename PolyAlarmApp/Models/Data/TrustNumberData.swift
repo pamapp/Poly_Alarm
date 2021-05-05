@@ -19,6 +19,7 @@ final class TrustNumberData: ObservableObject {
     }
     
     // MARK: - Managing TrustNumbers
+    
     func add(_ trustNumber: TrustNumber) {
         trustNumbers.append(trustNumber)
     }
@@ -27,5 +28,9 @@ final class TrustNumberData: ObservableObject {
         if let index = trustNumbers.firstIndex(where: { $0.id == trustNumber.id }) {
             trustNumbers.remove(at: index)
         }
+    }
+    
+    func removeAllTrustNumbers() {
+        trustNumbers.removeAll()
     }
 }

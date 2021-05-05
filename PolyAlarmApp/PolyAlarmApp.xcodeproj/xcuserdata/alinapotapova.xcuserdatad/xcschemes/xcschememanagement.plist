@@ -7,7 +7,7 @@
 		<key>PolyAlarmApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>18</integer>
 		</dict>
 		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
@@ -29,6 +29,24 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>23</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>91554DA0262EE7E4003D111B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91554DB0262EECBA003D111B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91AC95BA261B953E000329DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

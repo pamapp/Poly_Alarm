@@ -10,6 +10,7 @@ import Firebase
 
 struct SettingsView: View {
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var trustNumberData: TrustNumberData
     @State private var showingTimeBefore = false
     @State private var showingTrustNumbers = false
     @State private var showingNickname = false
@@ -103,7 +104,7 @@ struct SettingsView: View {
                         content: {
                             TrustNumberListView()
                                 .preferredColorScheme(.dark)
-                                .environmentObject(TrustNumberData())
+                                .environmentObject(self.trustNumberData)
                     })
                 }
                 
@@ -143,7 +144,7 @@ struct SettingsView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
+                            withAnimation {
                                 self.showingTimeBefore.toggle()
                             }
                         }
@@ -165,7 +166,7 @@ struct SettingsView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
+                            withAnimation {
                                 self.showingNickname.toggle()
                             }
                         }
@@ -187,7 +188,7 @@ struct SettingsView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
+                            withAnimation {
                                 self.showingGroupNumber.toggle()
                             }
                         }
@@ -209,7 +210,7 @@ struct SettingsView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
+                            withAnimation {
                                 self.showingMessage.toggle()
                             }
                         }
@@ -231,7 +232,7 @@ struct SettingsView: View {
                         .opacity(0.9)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
-                            withAnimation{
+                            withAnimation {
                                 self.showingSignOutMakeSure.toggle()
                             }
                         }

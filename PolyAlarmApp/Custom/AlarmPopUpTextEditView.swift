@@ -10,10 +10,12 @@ import SwiftUI
 struct AlarmPopUpTextEditView: View {
     @Binding var data: String
     @Binding var showingPopUpEditView: Bool
+    
     @State var edittingData: String
     @State var settingsTitle: String
     @State var textFieldTitle: String
     @State var moreThanOneLine: Bool
+    
     
     var body: some View {
         VStack(spacing: moreThanOneLine ? UIScreen.main.bounds.width / 9 : UIScreen.main.bounds.width / 9.5) {
@@ -25,6 +27,7 @@ struct AlarmPopUpTextEditView: View {
             VStack {
                 TextField(textFieldTitle, text: $edittingData)
                     .editDataStyle()
+                
                 
                 Divider()
                     .padding(.leading)

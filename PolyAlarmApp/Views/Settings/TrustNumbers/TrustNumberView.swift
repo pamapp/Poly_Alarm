@@ -50,7 +50,7 @@ struct TrustNumberView: View {
                                 )
                         }.sheet(isPresented: self.$showingEditTrustNumView, content: {
                             TrustNumberEditView(
-                                trustNumber: trustNumber,
+                                trustNumber: self.trustNumber,
                                 name: trustNumber.name,
                                 phoneNumber: trustNumber.phoneNumber,
                                 deleteAction: trustNumData.delete,
