@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 //struct UserDatabase: Codable {
 //    let groupNumber: String
@@ -23,6 +22,6 @@ struct User: Codable, Identifiable {
 
 extension User {
     static var defaultUserData: User {
-        User(id: UUID(), timeBefore: "120", nickname: "USER", groupNumber: "3530202/90002", messageText: "Wake me up!")
+        User(id: UUID(), timeBefore: "120", nickname: "USER", groupNumber: "", messageText: "Wake me up!")
     }
 }

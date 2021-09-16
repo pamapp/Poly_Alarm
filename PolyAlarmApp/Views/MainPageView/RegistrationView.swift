@@ -10,12 +10,15 @@ import Combine
 import Firebase
 
 struct RegistrationView: View {
+    @EnvironmentObject var userData: UserData
+    
+    @Binding var phoneNumberDoc: String
+    
     @State private var loadingRegistration = false
     @State private var show = false
     @State private var alert: Bool = false
     @State var nickNameField: String = ""
     @State var groupNumberField: String = ""
-    @Binding var phoneNumberDoc: String
     
     private let db = Firestore.firestore()
     
@@ -76,6 +79,7 @@ struct RegistrationView: View {
                                     self.loadingRegistration.toggle()
                                     saveUser(groupnumber: groupNumberField, nickname: nickNameField)
                                     verifyFunc()
+                                    saveLocalUserData()
                                 }) {
                                     RoundedRectangle(cornerRadius: 15)
                                         .frame(width: 125, height: 45)
@@ -113,5 +117,12 @@ struct RegistrationView: View {
             "groupNumber": groupnumber,
             "nickname": nickname
         ])
+    }
+    
+    private func saveLocalUserData() {
+        if !nickNameField.isEmpty && !groupNumberField.isEmpty {
+            userData.data.nickname = nickNameField
+            userData.data.groupNumber = groupNumberField
+        }
     }
 }

@@ -115,6 +115,7 @@ struct OTPView: View {
                 
                 if self.showRegistrationView {
                     RegistrationView(phoneNumberDoc: $phoneNumberDB, verifyFunc: verifyUser)
+                        .environmentObject(UserData())
                 }
             }
             .navigationBarHidden(true)
@@ -140,6 +141,8 @@ struct OTPView: View {
             if err != nil {
                 self.msg = (err?.localizedDescription)!
                 self.alert.toggle()
+                self.loadingOTP.toggle()
+                self.code = ""
                 return
             }
             UserDefaults.standard.set(true, forKey: "status")

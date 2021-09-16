@@ -21,7 +21,7 @@ let alarm = Alarm(id: UUID().uuidString,
                   date: Date(),
                   label: "Alarm",
                   ringtone: [.radar],
-                  repeatDay: [.wed],
+                  repeatDay: [.fri],
                   isEnabled: true,
                   isNotify: false)
 

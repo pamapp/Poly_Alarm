@@ -17,6 +17,8 @@ fileprivate enum Constants {
 struct BottomSheetView: View {
     @EnvironmentObject var alarmData: AlarmData
     
+    @EnvironmentObject var userData: UserData
+    
     @Binding var isOpen: Bool
     
     @State var dateWeek = Date()
@@ -100,7 +102,7 @@ struct BottomSheetView: View {
                     .fill(Color.white)
                     .overlay(
                         VStack(alignment: .center, spacing: 16) {
-                            Text("HELLO!")
+                            Text("HELLO, \(userData.data.nickname)!")
                                 .font(.resistMedium())
                                 .foregroundColor(.darkBlue)
                             

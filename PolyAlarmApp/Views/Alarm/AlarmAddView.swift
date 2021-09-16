@@ -91,6 +91,7 @@ struct AlarmAddView: View {
                     AlarmPopUpTextEditView(
                         data: $label,
                         showingPopUpEditView: $showingEditLabelView,
+                        numericOnly: false,
                         edittingData: label,
                         settingsTitle: "LABEL SETTINGS",
                         textFieldTitle: "LABEL",

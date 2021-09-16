@@ -10,28 +10,6 @@ import XCTest
 var app: XCUIApplication!
 var test: XCTestCase!
 
-class PolyAlarmAppUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-//        try super.setUpWithError()
-        continueAfterFailure = false
-//        app = XCUIApplication()
-//        app.launch()
-    }
-
-    func testExample() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-    }
-
-    func clearTextField(textField: XCUIElement) {
-        for _ in 1...(textField.value as! String).count {
-            app.keys["delete"].tap()
-        }
-    }
-}
-
 // MARK: - Notifications Tests Section
 
 class LocationHandler {

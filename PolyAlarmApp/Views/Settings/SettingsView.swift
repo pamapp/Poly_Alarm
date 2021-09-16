@@ -152,6 +152,7 @@ struct SettingsView: View {
                     AlarmPopUpTextEditView(
                         data: $userData.data.timeBefore,
                         showingPopUpEditView: $showingTimeBefore,
+                        numericOnly: true,
                         edittingData: userData.data.timeBefore,
                         settingsTitle: SettingsTitles.timeBefore,
                         textFieldTitle: LabelsTexts.timeBefore,
@@ -174,6 +175,7 @@ struct SettingsView: View {
                     AlarmPopUpTextEditView(
                         data: $userData.data.nickname,
                         showingPopUpEditView: $showingNickname,
+                        numericOnly: false,
                         edittingData: userData.data.nickname,
                         settingsTitle: SettingsTitles.nickname,
                         textFieldTitle: LabelsTexts.nickname,
@@ -196,6 +198,7 @@ struct SettingsView: View {
                     AlarmPopUpTextEditView(
                         data: $userData.data.groupNumber,
                         showingPopUpEditView: $showingGroupNumber,
+                        numericOnly: false,
                         edittingData: userData.data.groupNumber,
                         settingsTitle: SettingsTitles.groupNumber,
                         textFieldTitle: LabelsTexts.groupNumber,
@@ -218,6 +221,7 @@ struct SettingsView: View {
                     AlarmPopUpTextEditView(
                         data: $userData.data.messageText,
                         showingPopUpEditView: $showingMessage,
+                        numericOnly: false,
                         edittingData: userData.data.messageText,
                         settingsTitle: SettingsTitles.messageText,
                         textFieldTitle: LabelsTexts.messageText,

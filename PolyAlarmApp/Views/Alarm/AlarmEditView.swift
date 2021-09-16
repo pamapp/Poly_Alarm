@@ -110,6 +110,7 @@ struct AlarmEditView: View {
                     AlarmPopUpTextEditView(
                         data: $labelEdit,
                         showingPopUpEditView: $showingEditLabelView,
+                        numericOnly: false,
                         edittingData: labelEdit,
                         settingsTitle: "LABEL SETTINGS",
                         textFieldTitle: "LABEL",

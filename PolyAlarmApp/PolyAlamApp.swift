@@ -12,9 +12,6 @@ import UserNotifications
 @main
 struct alarmApp: App {
     @UIApplicationDelegateAdaptor(Delegate.self) var delegate
-//    let trustNumberData = TrustNumberData()
-//    let alarmData = AlarmData()
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -50,10 +50,7 @@ extension Alarm {
 extension Alarm {
     static var defaultAlarm: [Alarm] {
         get {[
-            Alarm(id: UUID().uuidString, date: Date(), label: "TESTNAME", ringtone: [.radar], repeatDay: [.sat, .sun, .mon], isEnabled: true, isNotify: true),
-            Alarm(id: UUID().uuidString, date: Date().addingTimeInterval(+1000), label: "TESTNAME1", ringtone: [.apex], repeatDay: [.mon, .tue, .wed, .thu, .fri], isEnabled: false, isNotify: false),
-            Alarm(id: UUID().uuidString, date: Date(), label: "TESTNAME2", ringtone: [.radar], repeatDay: [.mon, .tue, .wed, .thu, .fri, .sat, .sun], isEnabled: false, isNotify: true),
-            Alarm(id: UUID().uuidString, date: Date().addingTimeInterval(-1000), label: "TESTNAME3", ringtone: [.chimes], repeatDay: [.mon], isEnabled: true, isNotify: true),
+            Alarm(id: UUID().uuidString, date: Date(), label: "TESTNAME", ringtone: [.radar], repeatDay: [.sat, .sun, .mon], isEnabled: true, isNotify: true)
         ]}
     }
 }

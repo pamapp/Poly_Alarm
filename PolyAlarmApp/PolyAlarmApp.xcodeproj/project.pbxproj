@@ -55,6 +55,7 @@
 		91AC963C261B9A8F000329DC /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963B261B9A8F000329DC /* TitleLabelView.swift */; };
 		91AC963F261B9AD3000329DC /* PolyAlamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC963E261B9AD3000329DC /* PolyAlamApp.swift */; };
 		91AC9660261BB150000329DC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC965F261BB150000329DC /* CustomTextField.swift */; };
+		91D0915A26468C74006EE5E8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0915926468C74006EE5E8 /* String+Extensions.swift */; };
 		91D3449D2626199E008E8303 /* TrustNumberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D3449C2626199E008E8303 /* TrustNumberData.swift */; };
 		91D344A62626240C008E8303 /* TrustNumberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D344A52626240C008E8303 /* TrustNumberEditView.swift */; };
 		E583FA62261F09DC00994C83 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FA61261F09DC00994C83 /* OTPView.swift */; };
@@ -143,6 +144,7 @@
 		91AC963B261B9A8F000329DC /* TitleLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		91AC963E261B9AD3000329DC /* PolyAlamApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyAlamApp.swift; sourceTree = "<group>"; };
 		91AC965F261BB150000329DC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		91D0915926468C74006EE5E8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		91D3449C2626199E008E8303 /* TrustNumberData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustNumberData.swift; sourceTree = "<group>"; };
 		91D344A52626240C008E8303 /* TrustNumberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustNumberEditView.swift; sourceTree = "<group>"; };
 		E583FA61261F09DC00994C83 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -232,17 +234,24 @@
 			path = PolyAlarmAppUITests;
 			sourceTree = "<group>";
 		};
+		9189D295264E9F3F00AB235C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				91AC95FB261B97C6000329DC /* Sounds */,
+				91AC95EF261B973E000329DC /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		91AC95B2261B953E000329DC = {
 			isa = PBXGroup;
 			children = (
 				91AC963E261B9AD3000329DC /* PolyAlamApp.swift */,
 				91AC95BD261B953E000329DC /* PolyAlarmApp */,
-				91AC95EF261B973E000329DC /* Fonts */,
-				91AC95FB261B97C6000329DC /* Sounds */,
-				9148094B2620EEC50077700B /* Notifications */,
-				9148094A2620EE820077700B /* Styles */,
-				91AC95D2261B9642000329DC /* Custom */,
+				9189D295264E9F3F00AB235C /* Assets */,
 				91AC95F3261B9781000329DC /* Models */,
+				91AC95D6261B9697000329DC /* Data */,
+				9148094B2620EEC50077700B /* Notifications */,
 				91AC95E7261B96F3000329DC /* Extensions */,
 				91AC9609261B983D000329DC /* Views */,
 				91554DA2262EE7E4003D111B /* PolyAlarmAppTests */,
@@ -280,7 +289,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		91AC95D2261B9642000329DC /* Custom */ = {
+		91AC95D2261B9642000329DC /* CustomViewObjects */ = {
 			isa = PBXGroup;
 			children = (
 				914809422620ED0C0077700B /* AlarmPopUpTextEditView.swift */,
@@ -289,7 +298,7 @@
 				91AC965F261BB150000329DC /* CustomTextField.swift */,
 				9148093F2620ECBB0077700B /* TabViewCustom.swift */,
 			);
-			path = Custom;
+			path = CustomViewObjects;
 			sourceTree = "<group>";
 		};
 		91AC95D6261B9697000329DC /* Data */ = {
@@ -310,6 +319,7 @@
 				91AC95EA261B9719000329DC /* Font+Extensions.swift */,
 				91AC95E9261B9719000329DC /* View+Extensions.swift */,
 				9148093B2620E2FA0077700B /* Application+Extensions.swift */,
+				91D0915926468C74006EE5E8 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,7 +335,6 @@
 		91AC95F3261B9781000329DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				91AC95D6261B9697000329DC /* Data */,
 				91AC95F6261B9791000329DC /* Alarm.swift */,
 				91AC95F5261B9791000329DC /* RepeatDay.swift */,
 				91AC95F4261B9791000329DC /* Ringtone.swift */,
@@ -352,6 +361,8 @@
 			isa = PBXGroup;
 			children = (
 				91AC960E261B98C9000329DC /* ContentView.swift */,
+				9148094A2620EE820077700B /* Styles */,
+				91AC95D2261B9642000329DC /* CustomViewObjects */,
 				91AC960A261B987A000329DC /* MainPageView */,
 				91AC960D261B98A0000329DC /* User */,
 				91AC960B261B9889000329DC /* Settings */,
@@ -633,6 +644,7 @@
 				91D344A62626240C008E8303 /* TrustNumberEditView.swift in Sources */,
 				E5CD0B6F261B9D2900A9EE92 /* DefaultButtonStyle.swift in Sources */,
 				91AC95EB261B9719000329DC /* Color+Extensions.swift in Sources */,
+				91D0915A26468C74006EE5E8 /* String+Extensions.swift in Sources */,
 				91AC95F9261B9791000329DC /* Alarm.swift in Sources */,
 				E5CD0B72261B9D2900A9EE92 /* Notification.swift in Sources */,
 				914809432620ED0C0077700B /* AlarmPopUpTextEditView.swift in Sources */,

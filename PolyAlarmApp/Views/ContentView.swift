@@ -27,7 +27,8 @@ struct ContentView: View {
                         tag: "Profile"
                     ),
                     TabBarPage(
-                        page: AlarmListView()
+                        page:
+                            AlarmListView()
                             .environmentObject(AlarmData())
                             .preferredColorScheme(.dark),
                         icon: "alarm",
@@ -45,13 +46,14 @@ struct ContentView: View {
                         tag: "Settings"
                     )
                 ]), showingBottomSheet: $showingProfile)
-                
+
                 if self.showingProfile {
                     BottomSheetView(isOpen: self.$bottomSheetShown, maxHeight: hieght)
                         .environmentObject(AlarmData())
+                        .environmentObject(UserData())
                         .edgesIgnoringSafeArea(.all)
                 }
-    
+
             } else {
                 VerificationView()
             }

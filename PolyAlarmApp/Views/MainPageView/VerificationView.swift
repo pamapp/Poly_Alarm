@@ -84,6 +84,8 @@ struct VerificationView: View {
                                             if err != nil {
                                                 self.msg = (err?.localizedDescription)!
                                                 self.alert.toggle()
+                                                self.phoneNumderField = ""
+                                                self.loadingVerify.toggle()
                                                 return
                                             }
                                             self.ID = ID!

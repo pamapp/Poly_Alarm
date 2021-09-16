@@ -77,6 +77,7 @@ struct TrustNumberEditView: View {
         }.popUpStyle(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height / 2.3)
 
     }
+    
     private func delete() {
         deleteAction(trustNumber)
         self.showingEditTrustNumView.toggle()
