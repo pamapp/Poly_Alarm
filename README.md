@@ -11,9 +11,9 @@
 В файле Docs расположен файл с подробным отчетом о проделанной работе.
 
 <p>
-  <img src="https://user-images.githubusercontent.com/55293935/133600540-19daf553-9d42-4264-adf0-30354758d9bc.png" width="270">
-  <img src="https://user-images.githubusercontent.com/55293935/133600554-61ae0b89-f600-43f4-a50e-c2678ead13da.png" width="270">
-  <img src="https://user-images.githubusercontent.com/55293935/133600563-d7945f4b-d8af-4f19-8809-2269607deb5e.png" width="270">
+  <img src="https://user-images.githubusercontent.com/55293935/133600540-19daf553-9d42-4264-adf0-30354758d9bc.png" width="250">
+  <img src="https://user-images.githubusercontent.com/55293935/133600554-61ae0b89-f600-43f4-a50e-c2678ead13da.png" width="250">
+  <img src="https://user-images.githubusercontent.com/55293935/133600563-d7945f4b-d8af-4f19-8809-2269607deb5e.png" width="250">
 </p>
 
 Работы, из плана работ по проекту, которые были выполнены мной:
